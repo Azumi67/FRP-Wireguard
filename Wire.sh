@@ -1,4 +1,25 @@
 #!/bin/bash
+#
+# FRP Wireguard Tunnel 
+# Author: github.com/Azumi67
+# Special thanks to github.com/opiran-club as always.
+# Source: github.com/fatedier/frp
+#
+# This script is designed to simplify the installation and configuration of a
+# Wireguard-based IPV6 tunnel using the FRP. It provides options to
+# install required packages, configure the remote and local servers, and
+# uninstall the configuration and Restarting Services.
+#
+# supported architectures: x86_64, amd64
+# Supported operating systems: Tested on Ubuntu 20 - Digital Ocean
+# Disclaimer:
+# This script comes with no warranties or guarantees. Use it at your own risk.
+
+# root check
+if [[ $EUID -ne 0 ]]; then
+  echo -e "\e[93mThis script must be run as root. Please use sudo -i.\e[0m"
+  exit 1
+fi
 
 # bar
 function display_progress() {
