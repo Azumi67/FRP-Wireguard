@@ -16,6 +16,15 @@
 - There will be a video tutorial soon.
 ----------------------------------------------------------------------------------------------------------------------------
 
+![OIsP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/bae77d47-ad4c-498b-8354-8ef8631e166d)**Screenshots**
+<kbd>
+ 
+![Screenshot 2023-10-06 131935](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/34360d9e-5dd4-475a-99af-80bf069c3312)
+
+
+-----------------------------------------------------------------------------------------
+
+
 ![pngtree-stay-tuned-lettering-banner-png-image_238576](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/7ca06a6e-d94a-45b9-bfc6-0a71090fd10e) **Please stay tuned as I plan to add a lot of scripts just for tunneling between server and client**
 
 -------------------------------------------------------------------------------------------------------------------------
