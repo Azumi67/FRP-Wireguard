@@ -24,8 +24,9 @@
  - Copy link below
    
 ```
-example
+bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh)
 ```
+- Use it at your own Risk !
 -------------------------------------------------------------------------------------------------
 
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d1434ac2-94a9-44ef-8a14-84b981ab2e75) **Guide :** 
