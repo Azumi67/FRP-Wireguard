@@ -31,9 +31,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d1434ac2-94a9-44ef-8a14-84b981ab2e75) **Guide :** 
 
-- For IPV6 tunneling : you can also choose local ip [127.0.0.1] for kharej/client or you can choose kharej/client IPV6.
+- For IPV6 tunneling : you can also choose local ip [127.0.0.1] for kharej/client or just insert your kharej/client IPV6.
 - Use Iran/server Wireguard port to connect to the Internet
-- Select a port for kharej/client Wireguard port and a different port for Iran/server Wireguardport. [For example, the kharej port is 50820 and the Iran port is 50821.]
+- Use Iran/Server IPV4 in endpoint.
+- Wireguard port for Iran/Server and Kharej/Client should be different [For example, the kharej port is 50820 and the Iran port is 50821.]
 
 ------------------------------------------------------------------------------------------
 ![R23 (1)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/31baa226-5045-4489-90d2-1a066a91e880)
