@@ -33,7 +33,7 @@
  - Copy link below
    
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh --ipv4)
 ```
 - Use it at your own Risk !
 -------------------------------------------------------------------------------------------------
