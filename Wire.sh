@@ -174,7 +174,7 @@ if [[ $server_type == "1" ]]; then
         # Kharej IPv4 configuration
         read -p $'\e[93mEnter \e[92mKharej\e[33m IPv4 address: \e[0m' local_ip
         read -p $'\e[93mEnter \e[92mIran\e[33m IPv4 address: \e[0m' server_addr
-        read -p $'\e[93mEnter \e[92mKharej/Iran\e[33m port [Same port: 443]: \e[0m' server_port
+        read -p $'\e[93mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
         read -p $'\e[93mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[93mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[93mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
@@ -185,7 +185,7 @@ if [[ $server_type == "1" ]]; then
         # Kharej IPv6 configuration
         read -p $'\e[33mEnter \e[92mKharej\e[33m IPv6 address: \e[0m' local_ip
         read -p $'\e[33mEnter \e[92mIran\e[33m IPv6 address: \e[0m' server_addr
-        read -p $'\e[33mEnter \e[92mKharej/Iran\e[33m port [Same port: 443]: \e[0m' server_port
+        read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
         read -p $'\e[33mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
@@ -231,7 +231,7 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     display_loading
   elif [[ $server_type == "2" ]]; then
     # Iran configuration
-    read -p $'\e[33mEnter \e[92mKharej/Iran\e[33m port [Same port : 443]: \e[0m' bind_port
+    read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port : 443]: \e[0m' bind_port
     read -p $'\e[33mEnter your \e[92mToken key\e[33m [Same Password]: \e[0m' token
     read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' local_port
     read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
