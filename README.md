@@ -4,9 +4,9 @@ Languages :![lang](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/f64
 
 - Click Persian to navigate to the selceted section.
 
-[Persian](https://github.com/Azumi67/FRP-Wireguard/main/README.md#%D8%AA%D8%A7%D9%86%D9%84-%D9%88%D8%A7%DB%8C%D8%B1%DA%AF%D8%A7%D8%B1%D8%AF-frp)
+[Persian](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#%D8%AA%D8%A7%D9%86%D9%84-%D9%88%D8%A7%DB%8C%D8%B1%DA%AF%D8%A7%D8%B1%D8%AF-frp)
 
-[English](https://github.com/Azumi67/FRP-Wireguard/main/README.md#project-overview--wireguard-tunnel-based-on-frp-ipv46)
+[English](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#project-overview--wireguard-tunnel-based-on-frp-ipv46)
 
 ---------------------------------------------------------
 ![7115070](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d04e7b18-0b6d-4237-8447-2f7e1736a2dd)  WHAT IS FRP ? >> FRP is a fast reverse proxy that allows you to expose a local server behind a NAT or firewall to the Internet. It currently supports TCP and UDP as well as HTTP and HTTPS protocols, allowing requests to be forwarded to internal services via domain names.
