@@ -1,6 +1,14 @@
 ![R (2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/3a051159-7849-42b0-97d6-90ea6e78d13f)Project Overview : Wireguard Tunnel based on FRP IPV4/6
 --------------------------------
+Languages :![lang](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/f641779b-624e-445a-9709-fe44caef0223)
 
+- Click Persian to navigate to the selceted section.
+
+[Persian](https://github.com/Azumi67/FRP-Wireguard/edit/main/README.md#%D8%AA%D8%A7%D9%86%D9%84-%D9%88%D8%A7%DB%8C%D8%B1%DA%AF%D8%A7%D8%B1%D8%AF-frp)
+
+[English](https://github.com/Azumi67/FRP-Wireguard/edit/main/README.md#project-overview--wireguard-tunnel-based-on-frp-ipv46)
+
+---------------------------------------------------------
 ![7115070](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d04e7b18-0b6d-4237-8447-2f7e1736a2dd)  WHAT IS FRP ? >> FRP is a fast reverse proxy that allows you to expose a local server behind a NAT or firewall to the Internet. It currently supports TCP and UDP as well as HTTP and HTTPS protocols, allowing requests to be forwarded to internal services via domain names.
 
 ------------------------------------------------------------------------------
@@ -58,8 +66,40 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 ![R (6)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/b9c77229-d9b2-42e3-910c-a0a2ea820c92) [OPIRAN](https://github.com/opiran-club)
 
 
+-------------------------------------------------
+**تانل وایرگارد FRP**
+![R (2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/2f6d1111-2741-4224-991b-8c3c6a660e26)
+--------------------------------------------------------
+
+------------------------------------------------------------
+
+**امکانات** ![check](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/282de1ce-85b0-4a58-b0eb-af6b9004a04c)
+- به راحتی تانل را بر پایه ایپی ورژن 4 یا 6 برقرار کنید
+- نمایش سرویس در main menu
+- به روز رسانی سرویس
+- حذف سرویس
+
+- -----------------------------------------------------------------------------
+
+**آموزش**![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/cdc497c3-3191-437e-8a85-13f4e9b68808)
+- نخست سرور ایران را کانفیگ کنید و سپس سرور خارج.
+- اگر تانل شما با قرار دادن ایپی 6 خارج کار نکرد، به جای قرار دادن ایپی 6 خارج از 127.0.0.1 استفاده نمایید و برای قسمت ایپی ایران از ایپی 6 ایران استفاده نمایید.
+- پورت وایرگارد سرور ایران و خارج باید متفاوت باشد. شما وایرگارد را در سرور خارج نصب نمایید و به طور مثال پورت شما 50820 میباشد . پورت ایران شما مقدار متفاوتی به غیر از 50820 باید باشد. به عنوان مثال در قسمت ENDPOINT کلاینت وایرگارد، شما باید این مقدار را قرار دهید IPV4IRAN:50821
+
+ 
 
 
+-----------------------------------------------
+![R23 (1)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/ff23b9fa-a9da-428b-8bb6-e967160025d9)**: سورس اصلی**
+
+
+
+[سورس FRP](https://github.com/fatedier/frp) ![R (6)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/b9993cf7-fddb-4c8e-8892-ecab0c2a0496)
+
+------------------------------------------------------------------
+
+
+**آموزش یوتیوب:**![youtube-131994968075841675](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d9fb3c2c-5bdf-4854-8989-31f050432b6e)
 
 
 
