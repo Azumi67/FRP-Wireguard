@@ -1,6 +1,7 @@
 ![R (2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/3a051159-7849-42b0-97d6-90ea6e78d13f)Project Overview : Wireguard Tunnel based on FRP IPV4/6
 --------------------------------
-Languages :![lang](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/f641779b-624e-445a-9709-fe44caef0223)
+![lang](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/76f0a24c-7a39-4fa3-88ed-5428d1c90007) **Languages :**
+
 
 - Click Persian to navigate to the selceted section.
 
