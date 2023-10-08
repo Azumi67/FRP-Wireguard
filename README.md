@@ -4,9 +4,9 @@ Languages :![lang](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/f64
 
 - Click Persian to navigate to the selceted section.
 
-[Persian](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#%D8%AA%D8%A7%D9%86%D9%84-%D9%88%D8%A7%DB%8C%D8%B1%DA%AF%D8%A7%D8%B1%D8%AF-frp)
+1. [Persian](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#%D8%AA%D8%A7%D9%86%D9%84-%D9%88%D8%A7%DB%8C%D8%B1%DA%AF%D8%A7%D8%B1%D8%AF-frp)
 
-[English](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#project-overview--wireguard-tunnel-based-on-frp-ipv46)
+2. [English](https://github.com/Azumi67/FRP-Wireguard/blob/main/README.md#project-overview--wireguard-tunnel-based-on-frp-ipv46)
 
 ---------------------------------------------------------
 ![7115070](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d04e7b18-0b6d-4237-8447-2f7e1736a2dd)  WHAT IS FRP ? >> FRP is a fast reverse proxy that allows you to expose a local server behind a NAT or firewall to the Internet. It currently supports TCP and UDP as well as HTTP and HTTPS protocols, allowing requests to be forwarded to internal services via domain names.
@@ -48,10 +48,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d1434ac2-94a9-44ef-8a14-84b981ab2e75) **Guide :** 
 
+- First, Start configuring Iran server, then Kharej/Client server.
 - For IPV6 tunneling : you can also choose local ip [127.0.0.1] for kharej/client or just insert your kharej/client IPV6.
 - Use Iran/server Wireguard port to connect to the Internet
 - Use Iran/Server IPV4 in endpoint.
-- Wireguard port for Iran/Server and Kharej/Client should be different [For example, the kharej port is 50820 and the Iran port is 50821.]
+- Wireguard port for Iran/Server and Kharej/Client should be different [For example, the kharej port is 50820 and the Iran port is 50821.] Your Wireguard endpoint >> IPV4IRAN:50821
 
 ------------------------------------------------------------------------------------------
 ![R23 (1)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/31baa226-5045-4489-90d2-1a066a91e880)
