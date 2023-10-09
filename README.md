@@ -50,10 +50,15 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d1434ac2-94a9-44ef-8a14-84b981ab2e75) **Guide :** 
 
 - First, Start configuring Iran server, then Kharej/Client server.
+- Be sure to install Wireguard on your Server/Kharej
 - For IPV6 tunneling : you can also choose local ip [127.0.0.1] for kharej/client or just insert your kharej/client IPV6.
 - Use Iran/server Wireguard port to connect to the Internet
 - Use Iran/Server IPV4 in endpoint.
 - Wireguard port for Iran/Server and Kharej/Client should be different [For example, the kharej port is 50820 and the Iran port is 50821.] Your Wireguard endpoint >> IPV4IRAN:50821
+
+ -Example: I install Wireguard on my client or Kharej side and I choose 50820 for the port. Then I configure iran server using FRP script. Then it is time to configure Kharej side.
+  I choose 50820 for Kharej and 50821 for Iran. So in Wireguard client the endpoint will look like this >> IPV4-IRAN:50821
+  - If you had Problems, Contact me.
 
 ------------------------------------------------------------------------------------------
 ![R23 (1)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/31baa226-5045-4489-90d2-1a066a91e880)
@@ -89,8 +94,12 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 **آموزش**
 
 - نخست سرور ایران را کانفیگ کنید و سپس سرور خارج.
+- وایرگارد را بر روی سرور خارج نصب نمایید.
 - برای کانفیگ IPV6 در سرور خارج ، اگر تانل شما با قرار دادن ایپی 6 خارج کار نکرد، به جای قرار دادن ایپی 6 خارج از 127.0.0.1 استفاده نمایید ( از ایپی 6 خارج هم میتوانید استفاده کنید) و برای ایپی ایران از ایپی 6 ایران استفاده نمایید.
 - پورت وایرگارد سرور ایران و خارج باید متفاوت باشد. شما وایرگارد را در سرور خارج نصب نمایید و به طور مثال پورت شما 50820 میباشد . پورت ایران شما مقدار متفاوتی به غیر از 50820 باید باشد. به عنوان مثال در قسمت ENDPOINT کلاینت وایرگارد، شما باید این مقدار را قرار دهید IPV4IRAN:50821
+
+- مثال : من وایرگارد را در سرور خارج نصب میکنم و پورت 50820 را قرار میدم. سپس اسکریپت را بر روی سرور ایران اجرا میکنم و پس از ان بر روی سرور خارج. پورت وایرگارد ایران را 50821 و پورت وایرگارد خارج را 50820 قرار میدم.
+  ایپی 6 خارج و ایران را برای سوال مربوطه وارد میکنم و در نهایت در کلاینت وایرگارد بر روی ویندوز یا موبایل به جای endpoint قدیمی از این مثا روبرو استفاده میکنم IPV4-IRAN:50821
 
  
 
