@@ -26,6 +26,11 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d1434ac2-94a9-44ef-8a14-84b981ab2e75) **Guide :** 
 
+- You can optimize your server with [OPIRAN Optimizer](https://github.com/opiran-club/VPS-Optimizer)
+  ```
+  apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-club/VPS-Optimizer/main/optimizer.sh --ipv4)
+   ```
+
 - Be sure to install Wireguard on your Server/Kharej
 - First, Start configuring Iran server, then Kharej/Client server.
 - For IPV6 tunneling : you can also choose local ip [127.0.0.1] for kharej/client or just insert your kharej/client IPV6.
@@ -33,11 +38,20 @@
 - Use Iran/Server IPV4 in endpoint.
 - Wireguard port for Iran/Server and Kharej/Client should be different [For example, the kharej port is 50820 and the Iran port is 50821.] Your Wireguard endpoint >> IPV4IRAN:50821
 
- - Example: I install Wireguard on my client or Kharej side and I choose 50820 for the port. Then I configure iran server using FRP script. Then it is time to configure Kharej side. 
-  I choose 50820 for Kharej Wireguard Port and 50821 for Iran Wireguard Port. So in Wireguard client the endpoint will look like this >> IPV4-IRAN:50821
-  - If you had Problems, Contact me.
+ - Example: I install Wireguard on my client / Kharej side and I choose 50820 for Wireguard port. Then I configure iran server using FRP script. I choose 443 for tunnel port and Azumi 
+  for token. Then it is time to configure Kharej side [same values for Kharej side].
+  I choose 50820 for Kharej Wireguard port and 50821 for Iran Wireguard port. So in Wireguard client the endpoint will look like this >> IPV4-IRAN:50821
+  - If you have any problems, contact me.
 
   -------------------------------------------------------------------------------------
+  ![OIP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/7a82e195-5beb-4a18-8365-5cd737525c66) **Download :** 
+ - Copy link below
+   
+```
+bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh --ipv4)
+```
+- Use it at your own Risk !
+-------------------------------------------------------------------------------------------------
 
 ![OIsP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/bae77d47-ad4c-498b-8354-8ef8631e166d) **Screenshots**
 <kbd>
@@ -52,18 +66,6 @@
 
 -------------------------------------------------------------------------------------------------------------------------
 
-![OIP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/7a82e195-5beb-4a18-8365-5cd737525c66) **Download :** 
- - Copy link below
-   
-```
-bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh --ipv4)
-```
-- Use it at your own Risk !
--------------------------------------------------------------------------------------------------
-
-
-
-------------------------------------------------------------------------------------------
 ![R23 (1)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/31baa226-5045-4489-90d2-1a066a91e880)
 ![circle-clipart-chain-link-9](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/348d93a7-b12b-414a-908d-664ea38f4cdf)[FRP-Source](https://github.com/fatedier/frp)
 
@@ -96,13 +98,14 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 ![1234](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/786573e0-752a-4ec0-b41b-02dedff28225)
 **آموزش**
 
-- نخست سرور ایران را کانفیگ کنید و سپس سرور خارج.
+- میتوانید از VPS Optimizer [اپیران](https://github.com/opiran-club/VPS-Optimizer) برای بهبودی عملکرد استفاده نمایید 
+```
+apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-club/VPS-Optimizer/main/optimizer.sh --ipv4)
+```
 - وایرگارد را بر روی سرور خارج نصب نمایید.
-- برای کانفیگ IPV6 در سرور خارج ، اگر تانل شما با قرار دادن ایپی 6 خارج کار نکرد، به جای قرار دادن ایپی 6 خارج از 127.0.0.1 استفاده نمایید ( از ایپی 6 خارج هم میتوانید استفاده کنید) و برای ایپی ایران از ایپی 6 ایران استفاده نمایید.
-- پورت وایرگارد سرور ایران و خارج باید متفاوت باشد. شما وایرگارد را در سرور خارج نصب نمایید و به طور مثال پورت شما 50820 میباشد . پورت ایران شما مقدار متفاوتی به غیر از 50820 باید باشد. به عنوان مثال در قسمت ENDPOINT کلاینت وایرگارد، شما باید این مقدار را قرار دهید IPV4IRAN:50821
-
-- مثال : من وایرگارد را در سرور خارج نصب میکنم و پورت 50820 را قرار میدم. سپس اسکریپت را بر روی سرور ایران اجرا میکنم و پس از ان بر روی سرور خارج. پورت وایرگارد ایران را 50821 و پورت وایرگارد خارج را 50820 قرار میدم.
-  ایپی 6 خارج و ایران را برای سوال مربوطه وارد میکنم و در نهایت در کلاینت وایرگارد بر روی ویندوز یا موبایل به جای endpoint قدیمی از این مثا روبرو استفاده میکنم IPV4-IRAN:50821
+- نخست سرور ایران را برای تانل کانفیگ کنید و سپس سرور خارج.
+- پورت وایرگارد ایران و خارج نباید یکی باشد. پورت وایرگارد خارج اگر 50820 است، پورت وایرگارد ایران به طور مثال 50821 خواهد بود.
+- به طور مثال : وایرگارد را در سرور خارج نصب میکنم و پورت هم 50820 قرار میدم سپس بر روی سرور ایران اسکریپت را اجرا میکنم و پورت تانل را 443 قرار میدم و توکن هم azumi قرار میدم .  سپس بر روی سرور خارج ایپی 6 خارج و ایران، پورت تانل 443 و توکن هم azumi قرار میدم . پورت وایرگارد ایران 50821 و پورت وایرگارد خارج 50820 میگذارم. و در کلاینت وایرگارد در قسمت endpoint این عبارت روبرو را جایگذاری میکنم. IPV4-IRAN:50821
 
  
 
