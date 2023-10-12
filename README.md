@@ -44,7 +44,8 @@
   - If you have any problems, contact me.
 
   -------------------------------------------------------------------------------------
-  ![OIP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/7a82e195-5beb-4a18-8365-5cd737525c66) **Download :** 
+  ![R (a2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/14145d9d-93d4-4b64-8907-b97ffb73f09f) **My Script**
+
  - Copy link below
    
 ```
@@ -111,7 +112,7 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
 
 
 -----------------------------------------------
-![R (3)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/4433c0c3-f492-48e8-b7b8-da4a5cb7c516)
+![R (a2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9a84efc5-545d-4222-a851-9f08f573766c)
 دستور اجرای اسکریپت 
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wire.sh --ipv4)
