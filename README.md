@@ -13,6 +13,10 @@
 ![7115070](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d04e7b18-0b6d-4237-8447-2f7e1736a2dd)  WHAT IS FRP ? >> FRP is a fast reverse proxy that allows you to expose a local server behind a NAT or firewall to the Internet. It currently supports TCP and UDP as well as HTTP and HTTPS protocols, allowing requests to be forwarded to internal services via domain names.
 
 ------------------------------------------------------------------------------
+![Update-Note--Arvin61r58](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/bace3b9b-4ac8-4e4f-9e0d-155d69ffcf32)
+- Added Mutli configuration for different ports with IPV6 for both iran and kharej.
+
+-------------------------------
 
 ![check](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9445fa6e-9eff-4299-b65d-5115bf53aead) **Features:**
 
@@ -85,6 +89,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 --------------------------------------------------------
 
 ------------------------------------------------------------
+![Update-Note--Arvin61r58](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9e6f78ec-9286-4e0a-888e-d8c29f2fc486) **امکان تانل با چندین پورت متفاوت و با چندین ایپی 6 هم در سرور خارج و ایران فراهم شد**
+  
+
+---------------------------------
+
 
 ![check](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/2a5e9652-9a0a-4b80-a9fc-db970d3804a0)
 **امکانات** 
