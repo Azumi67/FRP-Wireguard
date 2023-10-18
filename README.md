@@ -47,6 +47,27 @@
   I choose 50820 for Kharej Wireguard port and 50821 for Iran Wireguard port. So in Wireguard client the endpoint will look like this >> IPV4-IRAN:50821
   - If you have any problems, contact me.
 
+**Multi Config**
+- Kharej side
+ 
+![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/fabeb685-d7be-49df-82cd-f1e62b4912d2)
+
+- Choose the number of ipv6 that you need on kharej side
+- Enter your iran IPV6 address
+- Enter both tunnel token and port [ same value for both iran and kharej]
+- Enter your first, second and third Kharej IPV6 addresses based on the number of ipv6 addresses you have selected.
+- Enter your Kharej and Iran Wireguard port for each Kharej IPv6 address [you should enter the same port as you have entered here on the Iran side].
+
+- Iran side
+
+  ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/33b1a17b-ec17-403c-a32d-cb9dc40b14b2)
+
+  - Choose the number of ipv6 that you need on iran side
+  - Enter tunnel token and port [ the same value on kharej side]
+  - Enter your first, second and third Iran IPV6 addresses based on the number of ipv6 addresses you have selected.
+  - Enter your Kharej and Iran Wireguard port for each Kharej IPv6 address [you should enter the same port as you have entered here on the Kharej side].
+
+
   -------------------------------------------------------------------------------------
   ![R (a2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/14145d9d-93d4-4b64-8907-b97ffb73f09f) **My Script**
 
@@ -118,7 +139,34 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
 - پورت وایرگارد ایران و خارج نباید یکی باشد. پورت وایرگارد خارج اگر 50820 است، پورت وایرگارد ایران به طور مثال 50821 خواهد بود.
 - به طور مثال : وایرگارد را در سرور خارج نصب میکنم و پورت هم 50820 قرار میدم سپس بر روی سرور ایران اسکریپت را اجرا میکنم و پورت تانل را 443 قرار میدم و توکن هم azumi قرار میدم .  سپس بر روی سرور خارج ایپی 6 خارج و ایران، پورت تانل 443 و توکن هم azumi قرار میدم . پورت وایرگارد ایران 50821 و پورت وایرگارد خارج 50820 میگذارم. و در کلاینت وایرگارد در قسمت endpoint این عبارت روبرو را جایگذاری میکنم. IPV4-IRAN:50821
 
+
+ ![green-dot-clipart-3](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d285f2bb-00ca-471b-95df-65d91eec2d9c)
+**کانفیگ چندین پورت**
  
+  <div dir="rtl">&bull; سرور خارج</div>
+  
+![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/80683a0c-f6be-42d9-95d4-e8064b5f4499)
+
+ <div dir="rtl">&bull; تعداد ایپی 6 خارج را انتخاب کنید.</div>
+ <div dir="rtl">&bull; ایپی 6 ایران را وارد نمایید.</div>
+ <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید( مقدار یکسان برای سرور خارج و ایران)</div>
+ <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم خارج را وارد نمایید.</div>
+ <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 خارج وارد نمایید.( باید همان پورت ها را در سرور ایران هم وارد نمایید)</div>
+
+----------------------------------------------
+  
+  <div dir="rtl">&bull; سرور ایران</div>
+
+   
+   ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/a68d78cb-589d-4b85-a291-dbfebcadc18a)
+  
+  
+ <div dir="rtl">&bull; تعداد ایپی 6 ایران را انتخاب کنید.</div>
+  <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید ( مقدار یکسان برای سرور خارج و ایران )</div>
+   <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم ایران را وارد نمایید.</div>
+    <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 ایران وارد نمایید ( باید همان پورت هایی باشد که در سرور خارج وارد کرده اید)</div>
+     <div dir="rtl">&bull; میتوانید از سرور ایران تک کانفیگ هم استفاده کنید اما به جای پورت های وایرگارد خارج . ایران از Port range استفاده نمایید. مثلا برای وایرگارد خارج طبق عکس بالا = 50820,50822 و برای ایران = 50821,50823</div>
+  
 
 
 -----------------------------------------------
