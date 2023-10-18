@@ -61,7 +61,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 ![OIsP](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/bae77d47-ad4c-498b-8354-8ef8631e166d) **Screenshots**
 <kbd>
  
-![Screenshot 2023-10-06 131935](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/34360d9e-5dd4-475a-99af-80bf069c3312)
+![logo](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/f1b71450-8794-4d54-897b-fb5564d37416)
+
 
 
 -----------------------------------------------------------------------------------------
