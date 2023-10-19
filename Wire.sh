@@ -321,9 +321,9 @@ token = $frp_token
 EOL
 
     for ((i=1; i<=$num_ipv6; i++)); do
-        read -p $'\e[93mEnter your \e[92mKharej\e[93m '$i$'th IPv6 \e[93maddress:\e[0m\e[93m[Enter your Kharej IPV6s]\e[0m ' kharej_ipv6
-        read -p $'\e[93mEnter \e[92mKharej\e[93m port for Wireguard:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m port for Wireguard:\e[0m\e[92m[This will be your Wireguard port]\e[0m ' iran_port
+        read -p $'\e[93mEnter your \e[92mKharej '$i$'th \e[93mIPv6 address:\e[0m\e[92m[Enter your Kharej IPV6s]\e[0m ' kharej_ipv6
+        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_port
+        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_port
  
     
         cat >> frp_0.51.3_linux_amd64/frpc.ini <<EOL
@@ -384,8 +384,8 @@ EOL
 
 for ((i=1; i<=$num_ipv6; i++)); do
         read -p $'\e[93mEnter your \e[92mIran\e[93m/Server\e[92m '$i$'th IPv6 \e[93maddress:\e[0m\e[93m[Enter your Iran IPV6s]\e[0m ' iran_ipv6
-        read -p $'\e[93mEnter \e[92mKharej\e[93m port for Wireguard:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_wireguard_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m port for Wireguard:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_wireguard_port
+        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_wireguard_port
+        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_wireguard_port
  
     
         cat >> frp_0.51.3_linux_amd64/frps.ini <<EOL
