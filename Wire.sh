@@ -503,17 +503,13 @@ function display_service_status() {
 function main_menu() {
 # Print the logo
   display_logo
-  display_service_status
-  echo
-  echo -e "\e[93m\033[1m ( •_ •) ▬▬ι═══════ﺤ Join OPIRAN Telegram: \e[34m@https://t.me/OPIranClub\e[0m\e[0m"
-  text="Author: Azumi"
-  width=60
-  padding=$((($width - ${#text}) / 2))
-  printf "%*s\e[92m%s\e[0m%*s\n" $padding '' "$text" $padding ''
+  echo ""
+  echo -e "\e[93m\033[1mJoin OPIRAN Telegram: \e[34m@https://t.me/OPIranClub\e[0m\e[0m"
   printf "\e[93m+ꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥ+\e[0m\n" 
-  echo -e "\e[93m╔═════════════════════════════════════════════╗\e[0m"  
-  echo -e "\e[93m║                  Main Menu                  ║\e[0m"   
-  echo -e "\e[93m╠═════════════════════════════════════════════╣\e[0m" 
+  echo -e "\e[93m╔════════════════════════════════════════════════════╗\e[0m"  
+  echo -e "\e[93m║                      Main Menu                     ║\e[0m"   
+  echo -e "\e[93m╠════════════════════════════════════════════════════╣\e[0m" 
+  display_service_status
   echo -e "\e[37m1. \e[96mInstall FRP"
   echo -e "\e[37m2. \e[32mFRP Wireguard tunnel setup"
   echo -e "\e[37m3. \e[35mFRP Multi Wireguard tunnel setup"
