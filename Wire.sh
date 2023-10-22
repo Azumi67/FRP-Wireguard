@@ -532,7 +532,7 @@ read -p $'\e[5mEnter your choice Please: \e[0m' choice in
     4)
       uninstall
       ;;
-    6)
+    5)
       restart_service
       ;;
     0)
