@@ -212,7 +212,7 @@ if [[ $server_type == "1" ]]; then
     fi
 
     # frpc.ini 
-    echo " [common]
+    echo "[common]
 server_addr = $server_addr
 server_port = $server_port
 token = $token
@@ -252,7 +252,7 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
   
     # frps.ini
-    echo " [common]
+    echo "[common]
 bind_port = $bind_port
 token = $token
 
