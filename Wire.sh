@@ -517,7 +517,7 @@ function main_menu() {
   echo -e "\e[37m5. \e[33;1mRestart Service\e[0m"
   echo -e "\e[37m0. \e[91;1mExit\e[0m"
 
-read -p $'\e[5mEnter your choice Please: \e[0m' choice in
+read -e -p $'\e[5mEnter your choice Please: \e[0m' choice in 1 2 3 4 5 0
 
   case $choice in
     1)
