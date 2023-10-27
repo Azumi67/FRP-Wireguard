@@ -15,7 +15,7 @@
 ------------------------------------------------------------------------------
 ![Update-Note--Arvin61r58](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/bace3b9b-4ac8-4e4f-9e0d-155d69ffcf32)
 - Added Mutli configuration for different ports with IPV6 for both iran and kharej.
-
+- Supports amd64 & arm
 -------------------------------
 
 ![check](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9445fa6e-9eff-4299-b65d-5115bf53aead) **Features:**
@@ -111,7 +111,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 --------------------------------------------------------
 
 ------------------------------------------------------------
-![Update-Note--Arvin61r58](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9e6f78ec-9286-4e0a-888e-d8c29f2fc486) **امکان تانل با چندین پورت متفاوت و با چندین ایپی 6 هم در سرور خارج و ایران فراهم شد**
+![Update-Note--Arvin61r58](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9e6f78ec-9286-4e0a-888e-d8c29f2fc486) 
+**امکان تانل با چندین پورت متفاوت و با چندین ایپی 6 هم در سرور خارج و ایران فراهم شد**
+
+**پشتیبانی از amd64 و arm**
   
 
 ---------------------------------
