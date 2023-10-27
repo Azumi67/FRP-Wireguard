@@ -77,133 +77,170 @@ echo -e "\033[1;96m$logo\033[0m"
 }
 # art
 logo=$(cat << "EOF"
-                          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀            ⠀⡏⢠⣾⢷⢶⣄⣕⠢⢄⠀⠀⣀⣠⠤⠔⠒⠒⠒⠒⠒⠒⠢⠤⠄⣀⠤⢊⣤⣶⣿⡿⣿⢹⢀⡇⠀⠀⠀⠀⠀
-⠀            ⠀⠀⢻⠈⣿⢫⡞⠛⡟⣷⣦⡝⠋⠉⣤⣤⣶⣶⣶⣿⣿⣿⡗⢲⣴⠀⠈⠑⣿⡟⡏⠀⢱⣮⡏⢨⠃⠀⠀⠀⠀⠀
-⠀⠀⠀            ⠸⡅⣹⣿⠀⠀⢩⡽⠋⣠⣤⣿⣿⣏⣛⡻⠿⣿⢟⣹⣴⢿⣹⣿⡟⢦⣀⠙⢷⣤⣼⣾⢁⡾⠀⠀⠀⠀⠀⠀
-⠀⠀⠀            ⠀⢻⡀⢳⣟⣶⠯⢀⡾⢍⠻⣿⣿⣽⣿⣽⡻⣧⣟⢾⣹⡯⢷⡿⠁⠀⢻⣦⡈⢿⡟⠁⡼⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀            ⠀⠀⢷⠠⢻⠏⢰⣯⡞⡌⣵⠣⠘⡉⢈⠓⡿⠳⣯⠋⠁⠀⠀⢳⡀⣰⣿⣿⣷⡈⢣⡾⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀            ⠙⣎⠀⣿⣿⣷⣾⣷⣼⣵⣆⠂⡐⢀⣴⣌⠀⣀⣤⣾⣿⣿⣿⣿⣿⣿⣷⣀⠣⠀⠀⠆⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀            ⠄⠑⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣳⣿⢽⣧⡤⢤⠀⠀⡇⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀            ⠀⢸⣈⢹⣟⣿⣿⣿⣿⣿⣻⢹⣿⣻⢿⣿⢿⣽⣳⣯⣿⢷⣿⡷⣟⣯⣻⣽⠧⠾⢤⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀           ⠀ ⢇⠤⢾⣟⡾⣽⣿⣽⣻⡗⢹⡿⢿⣻⠸⢿⢯⡟⡿⡽⣻⣯⣿⣎⢷⣣⡿⢾⢕⣎⠀⠀⠀⠀
-⠀⠀⠀⠀             ⠀⡠⡞⡟⣻⣮⣍⡛⢿⣽⣻⡀⠁⣟⣣⠿⡠⣿⢏⡞⠧⠽⢵⣳⣿⣺⣿⢿⡋⠙⡀⠀⠀
-⠀⠀           ⠀⠀⢰⠠⠁⠀⢻⡿⣛⣽⣿⢟⡁\033[1;91m⣭⣥⣅⠀⠀⠀⠀⠀⠀ ⣶⣟⣧\033[1;96m⠿⢿⣿⣯⣿⡇⠀⡇⠀⢀⡇⠀⠀⠀⠀⠀
-⠀            ⠀⠀ ⢸⠀⠀⡇⢹⣾⣿⣿⣷\033[1;91m⡿⢿⢷⡏⡈⠀⠀⠀⠀⠀⠀⠈⡹⡷⡎\033[1;96m⢸⣿⣿⣿⡇⠀⡇⠀⠸⡇⠀⠀⠀⠀⠀
-⠀⠀            ⠀⠀⢸⡄⠂⠖⢸⣿⣿⣿⡏⢃\033[1;91m⠘⡊⠩⠁⠀⠀⠀⠀⠀⠀⠀⠁⠀⠁\033[1;96m⢹⣿⣿⣿⡇⢰⢁⡌⢀⠇⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀⠀⢷⡘⠜⣤⣿⣿⣿⣷⡅⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣧⣕⣼⣠⡵⠋⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀⠀⣸⣻⣿⣾⣿⣿⣿⣿⣾⡄⠀⠀⠀⠀⠀\e[32m⢀⣀\033[1;96m⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⢀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀⠀⡇⣿⣻⣿⣿⣿⣿⣿⣿⣿⣦⣤⣀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣳⣿⡸⡀⠀⡇⡓⠒⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒⠒⠒⠀⠀⠀⠀
-⠀⠀⠀            ⠀⣸⢡⣿⢿⣿⣿⣿⣿⣿⣿⣿⢿⣿⡟⣽⠉⠀⠒⠂⠉⣯⢹⣿⡿⣿⣿⣿⣿⣿⣯⣿⡇⠇⠀⠀⡇ \e[32mAuthor: Azumi  ⡇⠀⠀⠀⠀⠀⠀
-⠀⠀⠀            \033[1;96m⢰⡏⣼⡿⣿⣻⣿⣿⣿⣿⣿⢿⣻⡿⠁⠘⡆⠀⠀⠀⢠⠇⠘⣿⣿⣽⣿⣿⣿⣿⣯⣿⣷⣸⠀⠀⠇⠱⡓⠒⠒⠒⠒⠒⠒⠀⠒⠒⠒⠒⠒⠒⠒⠀⠀⠀⠀ 
-   ______    _______   __      _______        __      _____  ___  
-   /    " \  |   __ "\ |" \    /"      \      /""\    (\"   \|"  \ 
-  // ____  \ (. |__) :)||  |  |:        |    /    \   |.\\   \    |
- /  /    ) :)|:  ____/ |:  |  |_____/   )   /' /\  \  |: \.   \\  |
-(: (____/ // (|  /     |.  |   //      /   //  __'  \ |.  \    \. |
- \        / /|__/ \    /\  |\ |:  __   \  /   /  \\  \|    \    \ |
-  \"_____/ (_______)  (__\_|_)|__|  \___)(___/    \___)\___|\____\)
+⠀⠀               ⠄⠠⠤⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠀⢀⠠⢀⣢⣈⣉⠁⡆⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⡏⢠⣾⢷⢶⣄⣕⠢⢄⠀⠀⣀⣠⠤⠔⠒⠒⠒⠒⠒⠒⠢⠤⠄⣀⠤⢊⣤⣶⣿⡿⣿⢹⢀⡇⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⢻⠈⣿⢫⡞⠛⡟⣷⣦⡝⠋⠉⣤⣤⣶⣶⣶⣿⣿⣿⡗⢲⣴⠀⠈⠑⣿⡟⡏⠀⢱⣮⡏⢨⠃⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⠸⡅⣹⣿⠀⠀⢩⡽⠋⣠⣤⣿⣿⣏⣛⡻⠿⣿⢟⣹⣴⢿⣹⣿⡟⢦⣀⠙⢷⣤⣼⣾⢁⡾⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀             ⠀⢻⡀⢳⣟⣶⠯⢀⡾⢍⠻⣿⣿⣽⣿⣽⡻⣧⣟⢾⣹⡯⢷⡿⠁⠀⢻⣦⡈⢿⡟⠁⡼⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀             ⠀⢷⠠⢻⠏⢰⣯⡞⡌⣵⠣⠘⡉⢈⠓⡿⠳⣯⠋⠁⠀⠀⢳⡀⣰⣿⣿⣷⡈⢣⡾⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀             ⠀⠀⠙⣎⠀⣿⣿⣷⣾⣷⣼⣵⣆⠂⡐⢀⣴⣌⠀⣀⣤⣾⣿⣿⣿⣿⣿⣿⣷⣀⠣⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀            ⠀⠀  ⠄⠑⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣳⣿⢽⣧⡤⢤⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀            ⠀⠀  ⢸⣈⢹⣟⣿⣿⣿⣿⣿⣻⢹⣿⣻⢿⣿⢿⣽⣳⣯⣿⢷⣿⡷⣟⣯⣻⣽⠧⠾⢤⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀             ⠀ ⢇⠤⢾⣟⡾⣽⣿⣽⣻⡗⢹⡿⢿⣻⠸⢿⢯⡟⡿⡽⣻⣯⣿⣎⢷⣣⡿⢾⢕⣎⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀             ⠀⡠⡞⡟⣻⣮⣍⡛⢿⣽⣻⡀⠁⣟⣣⠿⡠⣿⢏⡞⠧⠽⢵⣳⣿⣺⣿⢿⡋⠙⡀⠇⠱⠀⠀⠀
+⠀⠀⠀             ⠀⢰⠠⠁⠀⢻⡿⣛⣽⣿⢟⡁\033[1;91m⣭⣥⣅⠀⠀⠀⠀⠀⠀⣶⣟⣧\033[1;96m⠿⢿⣿⣯⣿⡇⠀⡇⠀⢀⡇⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⠀⢸⠀⠀⡇⢹⣾⣿⣿⣷⡿⢿\033[1;91m⢷⡏⡈⠀⠀⠀⠀⠀⠀⠈⡹⡷⡎\033[1;96m⢸⣿⣿⣿⡇⠀⡇⠀⠸⡇⠀⠀⠀⠀⠀⠀
+⠀             ⠀⠀⠀⢸⡄⠂⠖⢸⣿⣿⣿⡏⢃⠘\033[1;91m⡊⠩⠁⠀⠀⠀⠀⠀⠀⠀⠁⠀⠁\033[1;96m⢹⣿⣿⣿⡇⢰⢁⡌⢀⠇⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⠀⠀⢷⡘⠜⣤⣿⣿⣿⣷⡅⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣧⣕⣼⣠⡵⠋⠀⠀⠀⠀⠀⠀⠀
+⠀⠀              ⠀⠀⠀⣸⣻⣿⣾⣿⣿⣿⣿⣾⡄⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⢀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀             ⠀⠀⡇⣿⣻⣿⣿⣿⣿⣿⣿⣿⣦⣤⣀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣳⣿⡸⡀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀⠀\033[1;96m⣸⢡⣿⢿⣿⣿⣿⣿⣿⣿⣿⢿⣿⡟⣽⠉⠀⠒⠂⠉⣯⢹⣿⡿⣿⣿⣿⣿⣿⣯⣿⡇⠇ ⡇ \e[32mAuthor: Azumi  \033[1;96m⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀             ⠀\033[1;96m⢰⡏⣼⡿⣿⣻⣿⣿⣿⣿⣿⢿⣻⡿⠁⠘⡆⠀⠀⠀⢠⠇⠘⣿⣿⣽⣿⣿⣿⣿⣯⣿⣷⣸⠀⠀ ⠀⠀⠀⠀
+  \033[1;96m  ______   \033[1;94m _______  \033[1;92m __    \033[1;93m  _______     \033[1;91m   __      \033[1;96m _____  ___  
+ \033[1;96m  /    " \  \033[1;94m|   __ "\ \033[1;92m|" \  \033[1;93m  /"      \    \033[1;91m  /""\     \033[1;96m(\"   \|"  \ 
+ \033[1;96m // ____  \ \033[1;94m(. |__) :)\033[1;92m||  |  \033[1;93m|:        |   \033[1;91m /    \   \033[1;96m |.\\   \     |
+ \033[1;96m/  /    ) :)\033[1;94m|:  ____/ \033[1;92m|:  |  \033[1;93m|_____/   )  \033[1;91m /' /\  \   \033[1;96m|: \.   \\   |
+\033[1;96m(: (____/ // \033[1;94m(|  /     \033[1;92m|.  |  \033[1;93m //      /  \033[1;91m //  __'  \  \033[1;96m|.  \    \  |
+ \033[1;96m\        / \033[1;94m/|__/ \    \033[1;92m/\  |\ \033[1;93m|:  __   \  \033[1;91m/   /  \\   \ \033[1;96m|    \    \ |
+ \033[1;96m \"_____/ \033[1;94m(_______)  \033[1;92m(__\_|_)\033[1;93m|__|  \___)\033[1;91m(___/    \___) \033[1;96m\___|\____\)
 EOF
 )
 
 
 
 function install() {
-  display_notification $'\e[91mStarting installation in a sec...\e[0m'
+ # Function to stop the loading animation and exit
+    function stop_loading() {
+        echo -e "\xE2\x9D\x8C Installation process interrupted."
+        exit 1
+    }
 
- # ip forward
-  sysctl -w net.ipv4.ip_forward=1 &>/dev/null
-  sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
+    # (Ctrl+C)
+    trap stop_loading INT
+    # ip forward
+    sysctl -w net.ipv4.ip_forward=1 &>/dev/null
+    sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
 
-  # dns
-  echo "nameserver 8.8.8.8" > /etc/resolv.con
+    # dns
+    echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-# Apply sysctl settings to enable IPv4 and IPv6
-  sysctl -w net.ipv4.ip_forward=1 &>/dev/null
-  sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
+    # Apply sysctl settings to enable IPv4 and IPv6
+    sysctl -w net.ipv4.ip_forward=1 &>/dev/null
+    sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
 
-  # DNS baraye install
-  echo "nameserver 8.8.8.8" > /etc/resolv.conf
+    # DNS baraye install
+    echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-  # download frp
-  display_notification $'\e[91mDownloading FRP in a sec...\e[0m'
-  display_notification $'\e[91mPlease wait, updating...\e[0m'
+    # CPU architecture
+    arch=$(uname -m)
 
-  # start a timer.. heeey
-  SECONDS=0
+    # cpu architecture
+    case $arch in
+        x86_64 | amd64)
+            frp_download_url="https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_amd64.tar.gz"
+            ;;
+        aarch64 | arm64)
+            frp_download_url="https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_arm64.tar.gz"
+            ;;
+        *)
+            display_error "Unsupported CPU architecture: $arch"
+            return
+            ;;
+    esac
 
-  # update in the background
-  apt update &>/dev/null &
-  apt_update_pid=$!
+    # Download FRP notificatiooooons
+    display_notification $'\e[91mDownloading FRP in a sec...\e[0m'
+    display_notification $'\e[91mPlease wait, updating...\e[0m'
 
-  # timer
-  while [[ -n $(ps -p $apt_update_pid -o pid=) ]]; do
-    clear
-    display_notification $'\e[93mPlease wait, updating...\e[0m'
-    display_notification $'\e[93mWorking in the background, timer: \e[0m'"$SECONDS seconds"
-    sleep 1
-  done
+    # timer
+    SECONDS=0
 
-  # progress bar 
-  for ((i=0; i<=10; i++)); do
-    sleep 0.5
-    display_progress 10 $i
-  done
+    # Update in the background
+    apt update &>/dev/null &
+    apt_update_pid=$!
 
-  display_checkmark $'\e[92mUpdate completed successfully!\e[0m'
-  wget https://github.com/fatedier/frp/releases/download/v0.51.3/frp_0.51.3_linux_amd64.tar.gz &>/dev/null
-  tar -xf frp_0.51.3_linux_amd64.tar.gz &>/dev/null
+    # Timer
+    while [[ -n $(ps -p $apt_update_pid -o pid=) ]]; do
+        clear
+        display_notification $'\e[93mPlease wait, updating...\e[0m'
+        display_notification $'\e[93mAzumi is working in the background, timer: \e[0m'"$SECONDS seconds"
+        sleep 1
+    done
 
-  display_checkmark $'\e[92mFRP AMD64 installed successfully!\e[0m'
+    # progress bar
+    for ((i=0; i<=10; i++)); do
+        sleep 0.5
+        display_progress 10 $i
+    done
 
-# Apply sysctl settings
-  sysctl -p &>/dev/null
+    display_checkmark $'\e[92mUpdate completed successfully!\e[0m'
 
-  # Notification for sysctl and DNS changes
-  display_notification $'\e[92mIP forward enabled!\e[0m'
-  display_loading
+    # Download the appropriate FRP version
+    wget "$frp_download_url" -O frp.tar.gz &>/dev/null
+    tar -xf frp.tar.gz &>/dev/null
+
+    display_checkmark $'\e[92mFRP installed successfully!\e[0m'
+
+    # sysctl setting
+    sysctl -p &>/dev/null
+
+    # notify
+    display_notification $'\e[92mIP forward enabled!\e[0m'
+    display_loading
+
+    # interrupt
+    trap - INT
 }
 
-# baraye remove ini
 function configure_frp() {
-  clear
+clear
+    echo $'\e[92m ^ ^\e[0m'
+    echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+    echo $'\e[92m(   ) \e[93mFRP Tunnel Menu\e[0m'
+    echo $'\e[92m "-"\e[93m═════════════════════\e[0m'
   display_notification $'\e[93mStarting FRP Wireguard tunnel...\e[0m'
-
-
-  # file haye frp ini ro remove mikonim
-  rm frp_0.51.3_linux_amd64/frps.ini &>/dev/null
-  rm frp_0.51.3_linux_amd64/frpc.ini &>/dev/null
-
+ printf "\e[93m╭───────────────────────────────────────╮\e[0m\n"
 echo $'\e[93mSelect server type:\e[0m'
 echo $'1. \e[92mKharej\e[0m'
 echo $'2. \e[94mIRAN\e[0m'
+  printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
 read -p $'\e[38;5;205mEnter your choice Please: \e[0m' server_type
-
+clear
+    echo $'\e[92m ^ ^\e[0m'
+    echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+    echo $'\e[92m(   ) \e[93mKharej Menu\e[0m'
+    echo $'\e[92m "-"\e[93m═════════════════════\e[0m'
 if [[ $server_type == "1" ]]; then
+ printf "\e[93m╭───────────────────────────────────────╮\e[0m\n"
     echo $'\e[93mSelect Kharej configuration type:\e[0m'
     echo $'1. \e[92mIPv4\e[0m'
     echo $'2. \e[96mIPv6\e[0m'
+    printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
     read -p $'\e[38;5;205mEnter your choice Please: \e[0m' kharej_type
 
     if [[ $kharej_type == "1" ]]; then
         # Kharej IPv4 configuration
+	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
         read -p $'\e[93mEnter \e[92mKharej\e[33m IPv4 address: \e[0m' local_ip
         read -p $'\e[93mEnter \e[92mIran\e[33m IPv4 address: \e[0m' server_addr
         read -p $'\e[93mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
         read -p $'\e[93mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[93mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[93mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
+	  printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
 
        
 
     elif [[ $kharej_type == "2" ]]; then
         # Kharej IPv6 configuration
+	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
         read -p $'\e[33mEnter \e[92mKharej\e[33m IPv6 address: \e[0m' local_ip
         read -p $'\e[33mEnter \e[92mIran\e[33m IPv6 address: \e[0m' server_addr
         read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
         read -p $'\e[33mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
+	printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
 
       
     else
@@ -212,6 +249,17 @@ if [[ $server_type == "1" ]]; then
     fi
 
     # frpc.ini 
+rm frp_0.52.3_linux_amd64/frpc.ini
+rm frp_0.52.3_linux_arm64/frpc.ini
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
     echo "[common]
 server_addr = $server_addr
 server_port = $server_port
@@ -223,7 +271,7 @@ local_ip = $local_ip
 local_port = $local_port
 remote_port = $remote_port
 use_encryption = true
-use_compression = true" >> frp_0.51.3_linux_amd64/frpc.ini
+use_compression = true" >> frp_0.52.3_linux_$cpu_arch/frpc.ini
 
     # frpc service
     echo "[Unit]
@@ -231,7 +279,7 @@ Description=frpc service
 After=network.target
 
 [Service]
-ExecStart=/root/frp_0.51.3_linux_amd64/./frpc -c /root/frp_0.51.3_linux_amd64/frpc.ini
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frpc -c /root/frp_0.52.3_linux_$cpu_arch/frpc.ini
 Restart=always
 User=root
 
@@ -245,13 +293,30 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     sudo systemctl start azumifrpc
     display_loading
   elif [[ $server_type == "2" ]]; then
+  clear
+      echo $'\e[92m ^ ^\e[0m'
+    echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+    echo $'\e[92m(   ) \e[93mIran Menu\e[0m'
+    echo $'\e[92m "-"\e[93m═════════════════════\e[0m'
     # Iran configuration
+     printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
     read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port : 443]: \e[0m' bind_port
     read -p $'\e[33mEnter your \e[92mToken key\e[33m [Same Password]: \e[0m' token
     read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' local_port
     read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
-  
+   printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
     # frps.ini
+    rm frp_0.52.3_linux_amd64/frps.ini
+rm frp_0.52.3_linux_arm64/frps.ini
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
     echo "[common]
 bind_port = $bind_port
 token = $token
@@ -262,7 +327,7 @@ local_ip = 127.0.0.1
 local_port = $local_port
 remote_port = $remote_port
 use_encryption = true
-use_compression = true" >> frp_0.51.3_linux_amd64/frps.ini
+use_compression = true" >> frp_0.52.3_linux_$cpu_arch/frps.ini
 
     # frps service
     echo "[Unit]
@@ -270,7 +335,7 @@ Description=frps service
 After=network.target
 
 [Service]
-ExecStart=/root/frp_0.51.3_linux_amd64/./frps -c /root/frp_0.51.3_linux_amd64/frps.ini
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
 Restart=always
 
 [Install]
@@ -290,14 +355,18 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrps.service &>/
   display_checkmark $'\e[92mFRP Wireguard tunnel setup has been completed successfully!\e[0m'
 }
 function multi_port() {
-clear
-    echo +═══════════════════════════+
-    echo -e "\e[93mFRP Mutli Menu\e[0m"
-    echo +════════════════════════════+
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mFRP Multi Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+       printf "\e[93m╭───────────────────────────────────────╮\e[0m\n"
     echo "Select an option:"
     echo -e "1. \e[92mKharej Tunnel\e[0m"
     echo -e "2. \e[96mIran Tunnel\e[0m"
     echo -e "3. \e[33mBack to main menu\e[0m"
+    printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
     read -p "Enter your choice Please: " choice
 
     case $choice in
@@ -317,10 +386,13 @@ clear
  esac
 }
 function kharej_tunnel_menu() {
-    clear
-     echo +═══════════════════════════+
-    echo -e "\e[93mKharej Multi Menu\e[0m"
-    echo +════════════════════════════+
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mKharej Multi Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+      printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
     read -p $'\e[93mNumber of Kharej IPv6 addresses needed: \e[0m' num_ipv6
     sleep 1
     echo "Generating Config for you..."
@@ -328,9 +400,20 @@ function kharej_tunnel_menu() {
     read -p $'\e[93mEnter \e[92mIran\e[93m IPv6 address: \e[0m' iran_ipv6
     read -p $'\e[93mEnter Tunnel \e[92mToken\e[93m:[Same value for Kharej & Iran] \e[0m' frp_token
     read -p $'\e[93mEnter \e[92mTunnel\e[93m Port:[Example: 443] \e[0m' tunnel_port
-
-
-    cat > frp_0.51.3_linux_amd64/frpc.ini <<EOL
+   
+# frpc.ini 
+rm frp_0.52.3_linux_amd64/frpc.ini
+rm frp_0.52.3_linux_arm64/frpc.ini 
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
+    cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 [common]
 server_addr = $iran_ipv6
 server_port = $tunnel_port
@@ -343,9 +426,9 @@ EOL
         read -p $'\e[93mEnter your \e[92mKharej '$i$'th \e[93mIPv6 address:\e[0m\e[92m[Enter your Kharej IPV6s]\e[0m ' kharej_ipv6
         read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_port
         read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_port
- 
+ printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
     
-        cat >> frp_0.51.3_linux_amd64/frpc.ini <<EOL
+        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 
 [wireguard$i]
 type = udp
@@ -366,7 +449,7 @@ Description=frpc service
 After=network.target
 
 [Service]
-ExecStart=/root/frp_0.51.3_linux_amd64/./frpc -c /root/frp_0.51.3_linux_amd64/frpc.ini
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frpc -c /root/frp_0.52.3_linux_$cpu_arch/frpc.ini
 Restart=always
 User=root
 
@@ -384,9 +467,13 @@ echo "Reloading daemon..." > /dev/null 2>&1
     display_checkmark $'\e[92mFRP Service started.\e[0m'
 }
 function iran_tunnel_menu() {
-    echo +═════════════════════════════════+
-    echo -e "\e[93mIRAN Multi Menu\e[0m"
-    echo +═════════════════════════════════+
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mIran Multi Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+       printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
     read -p $'\e[93mNumber of Iran IPv6 addresses needed: \e[0m' num_ipv6
     sleep 1
     echo "Generating Iran Config for you..."
@@ -394,7 +481,19 @@ function iran_tunnel_menu() {
     read -p $'\e[93mEnter \e[92mTunnel Token\e[93m:[\e[93mSame Value for both Kharej & Iran\e[93m] \e[0m' token
     
     echo -e "\e[93mGenerating config for you...\e[0m"
-    cat > frp_0.51.3_linux_amd64/frps.ini <<EOL
+    #frps.ini
+    rm frp_0.52.3_linux_amd64/frps.ini
+rm frp_0.52.3_linux_arm64/frps.ini
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
+    cat > frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [common]
 bind_port = $tunnel_port
 token = $token
@@ -405,9 +504,9 @@ for ((i=1; i<=$num_ipv6; i++)); do
         read -p $'\e[93mEnter your \e[92mIran\e[93m/Server\e[92m '$i$'th IPv6 \e[93maddress:\e[0m\e[93m[Enter your Iran IPV6s]\e[0m ' iran_ipv6
         read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_wireguard_port
         read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_wireguard_port
- 
+  printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
     
-        cat >> frp_0.51.3_linux_amd64/frps.ini <<EOL
+        cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
 type = tcp
 local_ip$i = $iran_ipv6
@@ -427,7 +526,7 @@ Description=frps service
 After=network.target
 
 [Service]
-ExecStart=/root/frp_0.51.3_linux_amd64/./frps -c /root/frp_0.51.3_linux_amd64/frps.ini
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
 Restart=always
 User=root
 
@@ -506,9 +605,9 @@ function main_menu() {
   echo ""
   echo -e "\e[93m\033[1mJoin OPIRAN Telegram: \e[34m@https://t.me/OPIranClub\e[0m\e[0m"
   printf "\e[93m+ꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥ+\e[0m\n" 
-  echo -e "\e[93m╔════════════════════════════════════════════════════╗\e[0m"  
-  echo -e "\e[93m║                      Main Menu                     ║\e[0m"   
-  echo -e "\e[93m╠════════════════════════════════════════════════════╣\e[0m" 
+  echo -e "\e[93m╔════════════════════════════════════════════════════════════════╗\e[0m"  
+  echo -e "\e[93m║           ▌║█║▌│║▌│║▌║▌█║ \e[92mMain Menu\e[93m  ▌│║▌║▌│║║▌█║▌             ║\e[0m"   
+  echo -e "\e[93m╠════════════════════════════════════════════════════════════════╣\e[0m" 
   display_service_status
   echo -e "\e[37m1. \e[96mInstall FRP"
   echo -e "\e[37m2. \e[32mFRP Wireguard tunnel setup"
@@ -517,7 +616,7 @@ function main_menu() {
   echo -e "\e[37m5. \e[33;1mRestart Service\e[0m"
   echo -e "\e[37m0. \e[91;1mExit\e[0m"
 
-read -e -p $'\e[5mEnter your choice Please: \e[0m' choice in 1 2 3 4 5 0
+ read -e -p $'\e[5mEnter your choice Please: \e[0m' choice 
 
   case $choice in
     1)
@@ -550,15 +649,14 @@ read -e -p $'\e[5mEnter your choice Please: \e[0m' choice in 1 2 3 4 5 0
 function restart_service() {
   clear
   display_notification $'\e[93mRestarting FRP service...\e[0m'
-  
-  if systemctl is-active --quiet azumifrpc.service; then
-    systemctl restart azumifrpc.service
-  elif systemctl is-active --quiet azumifrps.service; then
-    systemctl restart azumifrps.service
-  else
-    display_error $'\e[91mNo FRP service is currently active. Unable to restart.\e[0m'
-    return
-  fi
+    # Check 1
+    systemctl daemon-reload
+    systemctl restart azumifrpc.service > /dev/null 2>&1
+
+    # Check 2
+    systemctl restart azumifrps.service > /dev/null 2>&1
+    display_checkmark $'\e[92mFRP Service restarted.\e[0m'
+
   
   display_checkmark $'\e[92mFRP service restarted successfully!\e[0m'
   sleep 2
