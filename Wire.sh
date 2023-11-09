@@ -336,7 +336,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
-Restart=always
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrps.service &>/dev/null
@@ -527,7 +528,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
-Restart=always
+Restart=on-failure
+RestartSec=5s
 User=root
 
 [Install]
