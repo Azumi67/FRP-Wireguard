@@ -34,6 +34,12 @@
   ```
   apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-club/VPS-Optimizer/main/optimizer.sh --ipv4)
    ```
+  
+  - or you can use [hwashemi script](https://github.com/hawshemi/Linux-Optimizer)
+    
+  ```
+  wget "https://raw.githubusercontent.com/hawshemi/Linux-Optimizer/main/linux-optimizer.sh" -O linux-optimizer.sh && chmod +x linux-optimizer.sh && bash linux-optimizer.sh 
+  ```
 
 - Be sure to install Wireguard on your Server/Kharej
 - First, Start configuring Iran server, then Kharej/Client server.
@@ -48,6 +54,15 @@
   - If you have any problems, contact me.
 
 **Multi Config**
+- Iran side
+
+  ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/33b1a17b-ec17-403c-a32d-cb9dc40b14b2)
+  - First configure iran server and both local[iran] and remote[kharej] port can be the same port.
+  - Choose the number of ipv6 that you need on iran side
+  - Enter tunnel token and port [ the same value on kharej side]
+  - Enter your first, second and third Iran IPV6 addresses based on the number of ipv6 addresses you have selected.
+  - Enter your Kharej and Iran Wireguard port for each Kharej IPv6 address [you should enter the same port as you have entered here on the Kharej side].
+    
 - Kharej side
  
 ![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/fabeb685-d7be-49df-82cd-f1e62b4912d2)
@@ -58,14 +73,6 @@
 - Enter your first, second and third Kharej IPV6 addresses based on the number of ipv6 addresses you have selected.
 - Enter your Kharej and Iran Wireguard port for each Kharej IPv6 address [you should enter the same port as you have entered here on the Iran side].
 
-- Iran side
-
-  ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/33b1a17b-ec17-403c-a32d-cb9dc40b14b2)
-
-  - Choose the number of ipv6 that you need on iran side
-  - Enter tunnel token and port [ the same value on kharej side]
-  - Enter your first, second and third Iran IPV6 addresses based on the number of ipv6 addresses you have selected.
-  - Enter your Kharej and Iran Wireguard port for each Kharej IPv6 address [you should enter the same port as you have entered here on the Kharej side].
 
 
   -------------------------------------------------------------------------------------
@@ -145,16 +152,6 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
 
  ![green-dot-clipart-3](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d285f2bb-00ca-471b-95df-65d91eec2d9c)
 **کانفیگ چندین پورت**
- 
-  <div dir="rtl">&bull; سرور خارج</div>
-  
-![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/80683a0c-f6be-42d9-95d4-e8064b5f4499)
-
- <div dir="rtl">&bull; تعداد ایپی 6 خارج را انتخاب کنید.</div>
- <div dir="rtl">&bull; ایپی 6 ایران را وارد نمایید.</div>
- <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید( مقدار یکسان برای سرور خارج و ایران)</div>
- <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم خارج را وارد نمایید.</div>
- <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 خارج وارد نمایید.( باید همان پورت ها را در سرور ایران هم وارد نمایید)</div>
 
 ----------------------------------------------
   
@@ -163,13 +160,26 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
    
    ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/a68d78cb-589d-4b85-a291-dbfebcadc18a)
   
-  
+   <div dir="rtl">&bull; نخست سرور ایران را کانفیگ کنید و سپس خارج.</div>
+  <div dir="rtl">&bull; هر دو پورت سرور خارج و ایران میتواند یکسان باشد</div>
  <div dir="rtl">&bull; تعداد ایپی 6 ایران را انتخاب کنید.</div>
   <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید ( مقدار یکسان برای سرور خارج و ایران )</div>
    <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم ایران را وارد نمایید.</div>
     <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 ایران وارد نمایید ( باید همان پورت هایی باشد که در سرور خارج وارد کرده اید)</div>
      <div dir="rtl">&bull; میتوانید از سرور ایران تک کانفیگ هم استفاده کنید اما به جای پورت های وایرگارد خارج . ایران از Port range استفاده نمایید. مثلا برای وایرگارد خارج طبق عکس بالا = 50820,50822 و برای ایران = 50821,50823</div>
   
+
+---------------------------------------------
+ 
+  <div dir="rtl">&bull; سرور خارج</div>
+  
+![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/80683a0c-f6be-42d9-95d4-e8064b5f4499)
+  <div dir="rtl">&bull; هر دو پورت سرور خارج و ایران میتواند یکسان باشد</div>
+ <div dir="rtl">&bull; تعداد ایپی 6 خارج را انتخاب کنید.</div>
+ <div dir="rtl">&bull; ایپی 6 ایران را وارد نمایید.</div>
+ <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید( مقدار یکسان برای سرور خارج و ایران)</div>
+ <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم خارج را وارد نمایید.</div>
+ <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 خارج وارد نمایید.( باید همان پورت ها را در سرور ایران هم وارد نمایید)</div>
 
 
 -----------------------------------------------
