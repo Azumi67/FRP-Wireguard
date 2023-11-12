@@ -161,7 +161,6 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
    ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/a68d78cb-589d-4b85-a291-dbfebcadc18a)
   
    <div dir="rtl">&bull; نخست سرور ایران را کانفیگ کنید و سپس خارج.</div>
-  <div dir="rtl">&bull; هر دو پورت سرور خارج و ایران میتواند یکسان باشد</div>
  <div dir="rtl">&bull; تعداد ایپی 6 ایران را انتخاب کنید.</div>
   <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید ( مقدار یکسان برای سرور خارج و ایران )</div>
    <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم ایران را وارد نمایید.</div>
@@ -174,7 +173,6 @@ apt install curl -y && bash <(curl -s https://raw.githubusercontent.com/opiran-c
   <div dir="rtl">&bull; سرور خارج</div>
   
 ![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/80683a0c-f6be-42d9-95d4-e8064b5f4499)
-  <div dir="rtl">&bull; هر دو پورت سرور خارج و ایران میتواند یکسان باشد</div>
  <div dir="rtl">&bull; تعداد ایپی 6 خارج را انتخاب کنید.</div>
  <div dir="rtl">&bull; ایپی 6 ایران را وارد نمایید.</div>
  <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید( مقدار یکسان برای سرور خارج و ایران)</div>
