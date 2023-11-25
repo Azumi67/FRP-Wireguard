@@ -221,10 +221,8 @@ if [[ $server_type == "1" ]]; then
     if [[ $kharej_type == "1" ]]; then
         # Kharej IPv4 configuration
 	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
-        read -p $'\e[93mEnter \e[92mKharej\e[33m IPv4 address: \e[0m' local_ip
         read -p $'\e[93mEnter \e[92mIran\e[33m IPv4 address: \e[0m' server_addr
         read -p $'\e[93mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
-        read -p $'\e[93mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[93mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[93mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
 	  printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
@@ -234,10 +232,8 @@ if [[ $server_type == "1" ]]; then
     elif [[ $kharej_type == "2" ]]; then
         # Kharej IPv6 configuration
 	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
-        read -p $'\e[33mEnter \e[92mKharej\e[33m IPv6 address: \e[0m' local_ip
         read -p $'\e[33mEnter \e[92mIran\e[33m IPv6 address: \e[0m' server_addr
         read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
-        read -p $'\e[33mEnter \e[92mToken\e[33m key [Same Password]: \e[0m' token
         read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
         read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
 	printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
@@ -263,11 +259,11 @@ fi
     echo "[common]
 server_addr = $server_addr
 server_port = $server_port
-token = $token
+token = azumichwan
 
 [wireguard]
 type = udp
-local_ip = $local_ip
+local_ip = 127.0.0.1
 local_port = $local_port
 remote_port = $remote_port
 use_encryption = true
@@ -301,7 +297,6 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     # Iran configuration
      printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
     read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port : 443]: \e[0m' bind_port
-    read -p $'\e[33mEnter your \e[92mToken key\e[33m [Same Password]: \e[0m' token
     read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' local_port
     read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
    printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
@@ -319,7 +314,7 @@ else
 fi
     echo "[common]
 bind_port = $bind_port
-token = $token
+token = azumichwan
 
 [wireguard]
 type = udp
@@ -337,7 +332,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
 Restart=on-failure
-RestartSec=5s
+RestartSec=3s
 
 [Install]
 WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrps.service &>/dev/null
@@ -399,7 +394,6 @@ function kharej_tunnel_menu() {
     echo "Generating Config for you..."
 
     read -p $'\e[93mEnter \e[92mIran\e[93m IPv6 address: \e[0m' iran_ipv6
-    read -p $'\e[93mEnter Tunnel \e[92mToken\e[93m:[Same value for Kharej & Iran] \e[0m' frp_token
     read -p $'\e[93mEnter \e[92mTunnel\e[93m Port:[Example: 443] \e[0m' tunnel_port
    
 # frpc.ini 
@@ -419,7 +413,7 @@ fi
 server_addr = $iran_ipv6
 server_port = $tunnel_port
 authentication_mode = token
-token = $frp_token
+token = azumichwan
 
 EOL
 
@@ -474,12 +468,9 @@ function iran_tunnel_menu() {
       echo $'\e[92m(   ) \e[93mIran Multi Menu\e[0m'
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
-       printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
-    read -p $'\e[93mNumber of Iran IPv6 addresses needed: \e[0m' num_ipv6
-    sleep 1
+    printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
     echo "Generating Iran Config for you..."
     read -p $'\e[93mEnter \e[92mTunnel Port\e[93m:[Example: \e[92m443\e[93m] \e[0m' tunnel_port
-    read -p $'\e[93mEnter \e[92mTunnel Token\e[93m:[\e[93mSame Value for both Kharej & Iran\e[93m] \e[0m' token
     
     echo -e "\e[93mGenerating config for you...\e[0m"
     #frps.ini
@@ -497,27 +488,23 @@ fi
     cat > frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [common]
 bind_port = $tunnel_port
-token = $token
+token = azumichwan
 
 EOL
-
-for ((i=1; i<=$num_ipv6; i++)); do
-        read -p $'\e[93mEnter your \e[92mIran\e[93m/Server\e[92m '$i$'th IPv6 \e[93maddress:\e[0m\e[93m[Enter your Iran IPV6s]\e[0m ' iran_ipv6
-        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[This is your current Wireguard port]\e[0m ' kharej_wireguard_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[This will be your new Wireguard port]\e[0m ' iran_wireguard_port
+        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
+        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
   printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
     
         cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
 type = tcp
-local_ip$i = $iran_ipv6
+local_ip$i = 127.0.0.1
 local_port = $iran_wireguard_port
 remote_port = $kharej_wireguard_port
 use_encryption = true
 use_compression = true
 
 EOL
-    done
 
     display_checkmark $'\e[92mIran configuration generated. Yours Truly, Azumi.\e[0m'
 # Add the service section for Kharej
