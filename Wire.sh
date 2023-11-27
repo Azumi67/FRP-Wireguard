@@ -117,9 +117,22 @@ function install() {
 
     # (Ctrl+C)
     trap stop_loading INT
-    # ip forward
-    sysctl -w net.ipv4.ip_forward=1 &>/dev/null
-    sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
+ipv4_forwarding=$(sysctl -n net.ipv4.ip_forward)
+    if [[ $ipv4_forwarding -eq 1 ]]; then
+        echo "IPv4 forwarding is already enabled."
+    else
+        sysctl -w net.ipv4.ip_forward=1 &>/dev/null
+        echo "IPv4 forwarding has been enabled."
+    fi
+
+    ipv6_forwarding=$(sysctl -n net.ipv6.conf.all.forwarding)
+    if [[ $ipv6_forwarding -eq 1 ]]; then
+        echo "IPv6 forwarding is already enabled."
+    else
+        # Enable IPv6 forwarding
+        sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
+        echo "IPv6 forwarding has been enabled."
+    fi
 
     # dns
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
