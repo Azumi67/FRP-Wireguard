@@ -137,13 +137,6 @@ ipv4_forwarding=$(sysctl -n net.ipv4.ip_forward)
     # dns
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-    # Apply sysctl settings to enable IPv4 and IPv6
-    sysctl -w net.ipv4.ip_forward=1 &>/dev/null
-    sysctl -w net.ipv6.conf.all.forwarding=1 &>/dev/null
-
-    # DNS baraye install
-    echo "nameserver 8.8.8.8" > /etc/resolv.conf
-
     # CPU architecture
     arch=$(uname -m)
 
