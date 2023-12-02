@@ -283,7 +283,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frpc -c /root/frp_0.52.3_linux_$cpu_arch/frpc.ini
 Restart=always
-RestartSec=21600
+RestartSec=21601
 User=root
 
 [Install]
@@ -454,7 +454,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frpc -c /root/frp_0.52.3_linux_$cpu_arch/frpc.ini
 Restart=always
-RestartSec=21600
+RestartSec=21601
 User=root
 
 [Install]
