@@ -197,7 +197,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP-Wireguard/main/Wir
 ---------------------------------------------------------------------------------------------------------
 
 ![R (7)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/5024ce1e-1cbf-4855-9b78-497c39b9f2f8) **Telegram channel :**
-![R (6)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/b9c77229-d9b2-42e3-910c-a0a2ea820c92) [OPIRAN](https://github.com/opiran-club)
+![R (6)](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/f81bf6e1-cfed-4e24-b944-236f5c0b15d3) [اپیران- OPIRAN](https://t.me/OPIranClubb)
 
 
 -------------------------------------------------
