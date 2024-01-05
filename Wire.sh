@@ -109,7 +109,7 @@ EOF
 
 function rmve_cron() {
     entries_to_remove=(
-        "0 */6 * * * /etc/res.sh"
+        "0 */2 * * * /etc/res.sh"
     )
 
     if test -f /etc/res.sh; then
@@ -144,7 +144,7 @@ EOF
 
     chmod +x /etc/res.sh
 
-    existing_entry="0 */6 * * * /etc/res.sh"
+    existing_entry="0 */2 * * * /etc/res.sh"
     existing_crontab=""
 
     existing_crontab=$(crontab -l 2>/dev/null)
@@ -174,7 +174,7 @@ EOF
 
     chmod +x /etc/res.sh
 
-    existing_entry="0 */6 * * * /etc/res.sh"
+    existing_entry="0 */2 * * * /etc/res.sh"
     existing_crontab=""
 
     existing_crontab=$(crontab -l 2>/dev/null)
