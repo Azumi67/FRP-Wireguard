@@ -49,6 +49,8 @@
  ![green-dot-clipart-3](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/d285f2bb-00ca-471b-95df-65d91eec2d9c)
 **نمونه کانفیگ kcp و speedlimit**
 
+<div align="right">
+  
 ![Screenshot 2024-01-15 234350](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/4bcfc5aa-76d1-42c8-ae7e-f26cad3cd59d)
 
 - پورت kcp و وایرگارد را وارد میکنم. ایپی ایران را وارد میکنم و برای پورت 50820 ، speed limit را فعال و بر روی 3MB میذارم و بر روی پورت دوم speed limit را غیرقعال میکنم.
@@ -60,29 +62,26 @@
 ----------------------------------------------
   
   <div dir="rtl">&bull; سرور ایران</div>
+  <div align="right">
+    
+![Screenshot 2024-01-16 000130](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/0d10ccad-6ba7-4290-a21c-c8c6eeb448d1)
 
-   
-   ![iran multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/a68d78cb-589d-4b85-a291-dbfebcadc18a)
-  
-   <div dir="rtl">&bull; نخست سرور ایران را کانفیگ کنید و سپس خارج.</div>
- <div dir="rtl">&bull; تعداد ایپی 6 ایران را انتخاب کنید.</div>
-  <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید ( مقدار یکسان برای سرور خارج و ایران )</div>
-   <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم ایران را وارد نمایید.</div>
-    <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 ایران وارد نمایید ( باید همان پورت هایی باشد که در سرور خارج وارد کرده اید)</div>
-     <div dir="rtl">&bull; میتوانید از سرور ایران تک کانفیگ هم استفاده کنید اما به جای پورت های وایرگارد خارج . ایران از Port range استفاده نمایید. مثلا برای وایرگارد خارج طبق عکس بالا = 50820,50822 و برای ایران = 50821,50823</div>
-  
+  - سرور ایران را کانفیگ میکنیم و پورت یا پورت های خود را قرار میدهیم.
 
 ---------------------------------------------
  
   <div dir="rtl">&bull; سرور خارج</div>
-  
+  <div align="right">
+    
 ![kharej multi](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/80683a0c-f6be-42d9-95d4-e8064b5f4499)
+
  <div dir="rtl">&bull; تعداد ایپی 6 خارج را انتخاب کنید.</div>
  <div dir="rtl">&bull; ایپی 6 ایران را وارد نمایید.</div>
  <div dir="rtl">&bull; توکن و پورت تانل را وارد نمایید( مقدار یکسان برای سرور خارج و ایران)</div>
  <div dir="rtl">&bull; ایپی 6 اول و دوم و سوم خارج را وارد نمایید.</div>
  <div dir="rtl">&bull; پورت وایرگارد خارج و ایران برای هر ایپی 6 خارج وارد نمایید.( باید همان پورت ها را در سرور ایران هم وارد نمایید)</div>
 
+</div>
 
 -----------------------------------------------
 ![R (a2)](https://github.com/Azumi67/FRP-Wireguard/assets/119934376/9a84efc5-545d-4222-a851-9f08f573766c)
