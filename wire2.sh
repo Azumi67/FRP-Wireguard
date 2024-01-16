@@ -155,7 +155,7 @@ timez() {
     echo -e "\033[93m───────────────────────────────────────\033[0m"
 
     while true; do
-        read -p $'\033[38;5;205mEnter your choice Please: \033[0m' server_type
+        read -e -p $'\033[38;5;205mEnter your choice Please: \033[0m' server_type
         if [[ "$server_type" == "1" ]]; then
             hourz
             break
@@ -173,7 +173,7 @@ timez() {
 }
 
 hourz() {
-    read -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m ' hours
+    read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m ' hours
 
     if [[ "$hours" == "1" ]]; then
         cron_entry="0 * * * * /etc/res.sh"
@@ -199,7 +199,7 @@ hourz() {
 }
 
 minutes() {
-    read -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m ' minutes
+    read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m ' minutes
 
     cron_entry="*/$minutes * * * * /etc/res.sh"
 
@@ -380,7 +380,7 @@ echo $'\e[93mSelect server type:\e[0m'
 echo $'1. \e[92mKharej\e[0m'
 echo $'2. \e[94mIRAN\e[0m'
   printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
-read -p $'\e[38;5;205mEnter your choice Please: \e[0m' server_type
+read -e -p $'\e[38;5;205mEnter your choice Please: \e[0m' server_type
 clear
     echo $'\e[92m ^ ^\e[0m'
     echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
@@ -392,15 +392,15 @@ if [[ $server_type == "1" ]]; then
     echo $'1. \e[92mIPv4\e[0m'
     echo $'2. \e[96mIPv6\e[0m'
     printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
-    read -p $'\e[38;5;205mEnter your choice Please: \e[0m' kharej_type
+    read -e -p $'\e[38;5;205mEnter your choice Please: \e[0m' kharej_type
 
     if [[ $kharej_type == "1" ]]; then
         # Kharej IPv4 configuration
 	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
-        read -p $'\e[93mEnter \e[92mIran\e[33m IPv4 address: \e[0m' server_addr
-        read -p $'\e[93mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
-        read -p $'\e[93mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
-        read -p $'\e[93mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[33m IPv4 address: \e[0m' server_addr
+        read -e -p $'\e[93mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
+        read -e -p $'\e[93mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
 	  printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
 
        
@@ -408,10 +408,10 @@ if [[ $server_type == "1" ]]; then
     elif [[ $kharej_type == "2" ]]; then
         # Kharej IPv6 configuration
 	 printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
-        read -p $'\e[33mEnter \e[92mIran\e[33m IPv6 address: \e[0m' server_addr
-        read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
-        read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
-        read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
+        read -e -p $'\e[33mEnter \e[92mIran\e[33m IPv6 address: \e[0m' server_addr
+        read -e -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port: 443]: \e[0m' server_port
+        read -e -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' local_port
+        read -e -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' remote_port
 	printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
 
       
@@ -435,7 +435,7 @@ if [[ $server_type == "1" ]]; then
         fi
 
         if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
-		read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+		read -e -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
             echo "[common]
 server_addr = $server_addr
 server_port = $server_port
@@ -497,9 +497,9 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     echo $'\e[92m "-"\e[93m═════════════════════\e[0m'
     # Iran configuration
      printf "\e[93m╭───────────────────────────────────────────────╮\e[0m\n"
-    read -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port : 443]: \e[0m' bind_port
-    read -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' local_port
-    read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
+    read -e -p $'\e[33mEnter \e[92mtunnel\e[33m port [Same port : 443]: \e[0m' bind_port
+    read -e -p $'\e[33mEnter \e[92mIran\e[33m Wireguard port: \e[0m' local_port
+    read -e -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
    printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
     # frps.ini
         rm frp_0.52.3_linux_amd64/frps.ini >/dev/null 2>&1
@@ -567,7 +567,7 @@ function multi_port() {
     echo -e "2. \e[96mIran Tunnel\e[0m"
     echo -e "3. \e[33mBack to main menu\e[0m"
     printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
-    read -p "Enter your choice Please: " choice
+    read -e -p "Enter your choice Please: " choice
 
     case $choice in
         1)
@@ -593,12 +593,12 @@ function kharej_tunnel_menu() {
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
       printf "\e[93m─────────────────────────────────────────────────\e[0m\n"
-    read -p $'\e[93mEnter the \e[92mnumber of Configs\e[93m: \e[0m' num_ipv6
+    read -e -p $'\e[93mEnter the \e[92mnumber of Configs\e[93m: \e[0m' num_ipv6
     sleep 1
     echo "Generating Config for you..."
 
-    read -p $'\e[93mEnter \e[92mIran\e[93m IPv4|IPv6 address: \e[0m' iran_ipv6
-    read -p $'\e[93mEnter \e[92mTunnel\e[93m Port:[Example: 443] \e[0m' tunnel_port
+    read -e -p $'\e[93mEnter \e[92mIran\e[93m IPv4|IPv6 address: \e[0m' iran_ipv6
+    read -e -p $'\e[93mEnter \e[92mTunnel\e[93m Port:[Example: 443] \e[0m' tunnel_port
    
 # frpc.ini
         rm frp_0.52.3_linux_amd64/frpc.ini >/dev/null 2>&1
@@ -624,11 +624,11 @@ token = azumichwan
 EOL
 
 for ((i=1; i<=$num_ipv6; i++)); do
-    read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
-    read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
+    read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
+    read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
     read -e -p $'\e[93mDo you want to enable the speed limiter? (\e[92myes\e[93m/\e[91mno\e[93m): \e[0m' enable_speed_limiter
     if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
-        read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+        read -e -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
         printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
 
         cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
@@ -691,9 +691,9 @@ function iran_tunnel_menu() {
       echo $'\e[92m(   ) \e[93mIran Multi Menu\e[0m'
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
-    printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
+    printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     echo "Generating Iran Config for you..."
-    read -p $'\e[93mEnter \e[92mTunnel Port\e[93m:[Example: \e[92m443\e[93m] \e[0m' tunnel_port
+    read -e -p $'\e[93mEnter \e[92mTunnel Port\e[93m:[Example: \e[92m443\e[93m] \e[0m' tunnel_port
     
     echo -e "\e[93mGenerating config for you...\e[0m"
     #frps.ini
@@ -714,9 +714,9 @@ bind_port = $tunnel_port
 token = azumichwan
 
 EOL
-        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
-  printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
+        read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
+  printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     
         cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
@@ -837,7 +837,7 @@ function Kcp_port() {
     echo -e "2. \e[96mIran Tunnel\e[0m"
     echo -e "3. \e[33mBack to main menu\e[0m"
     printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
-    read -p "Enter your choice Please: " choice
+    read -e -p "Enter your choice Please: " choice
 
     case $choice in
         1)
@@ -900,7 +900,7 @@ for ((i = 1; i <= $num_configs; i++)); do
     read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
     read -e -p $'\e[93mDo you want to enable the speed limiter? (\e[92myes\e[93m/\e[91mno\e[93m): \e[0m' enable_speed_limiter
     if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
-        read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+        read -e -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
         printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     
         cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
@@ -967,9 +967,9 @@ function iran_kcp_menu() {
       echo $'\e[92m(   ) \e[93mIran KCP Menu\e[0m'
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
-    printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
+    printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     echo "Generating Iran Config for you..."
-    read -p $'\e[93mEnter \e[92mKCP Port\e[93m:[Example: \e[92m443\e[93m] \e[0m' tunnel_port
+    read -e -p $'\e[93mEnter \e[92mKCP Port\e[93m:[Example: \e[92m443\e[93m] \e[0m' tunnel_port
     
     echo -e "\e[93mGenerating config for you...\e[0m"
     #frps.ini
@@ -991,9 +991,9 @@ kcpBindPort = $tunnel_port
 token = azumichwan
 
 EOL
-        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
-  printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
+        read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
+  printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     
         cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
