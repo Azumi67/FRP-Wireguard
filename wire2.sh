@@ -243,7 +243,7 @@ EOF
     else
         new_crontab=$(echo -e "$existing_crontab\n0 */2 * * * /etc/res.sh\n")
         echo "$new_crontab" | crontab -
-        echo -e "\033[92m6 hours reset timer added!\033[0m"
+        echo -e "\033[92m2 hours reset timer added!\033[0m"
     fi
 
     echo -e "\033[92mIT IS DONE.!\033[0m"
@@ -273,7 +273,7 @@ EOF
     else
         new_crontab=$(echo -e "$existing_crontab\n0 */2 * * * /etc/res.sh\n")
         echo "$new_crontab" | crontab -
-        echo -e "\033[92m6 hours reset timer added!\033[0m"
+        echo -e "\033[92m2 hours reset timer added!\033[0m"
     fi
 
     echo -e "\033[92mIT IS DONE.!\033[0m"
@@ -419,20 +419,38 @@ if [[ $server_type == "1" ]]; then
         echo $'\e[91mInvalid choice. Exiting...\e[0m'
         exit 1
     fi
+	read -e -p $'\e[93mDo you want to enable the speed limiter? (\e[92myes\e[93m/\e[91mno\e[93m): \e[0m' enable_speed_limiter
+        # frpc.ini
+        rm frp_0.52.3_linux_amd64/frpc.ini >/dev/null 2>&1
+        rm frp_0.52.3_linux_arm64/frpc.ini >/dev/null 2>&1
 
-    # frpc.ini 
-rm frp_0.52.3_linux_amd64/frpc.ini
-rm frp_0.52.3_linux_arm64/frpc.ini
-# CPU architecture
-if [[ "$(uname -m)" == "x86_64" ]]; then
-  cpu_arch="amd64"
-elif [[ "$(uname -m)" == "aarch64" ]]; then
-  cpu_arch="arm64"
-else
-  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
-  exit 1
-fi
-    echo "[common]
+        # CPU architecture
+        if [[ "$(uname -m)" == "x86_64" ]]; then
+            cpu_arch="amd64"
+        elif [[ "$(uname -m)" == "aarch64" ]]; then
+            cpu_arch="arm64"
+        else
+            echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+            exit 1
+        fi
+
+        if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
+		read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+            echo "[common]
+server_addr = $server_addr
+server_port = $server_port
+token = azumichwan
+
+[wireguard]
+type = udp
+local_ip = 127.0.0.1
+local_port = $local_port
+remote_port = $remote_port
+use_encryption = true
+use_compression = true
+transport_bandwidthLimit = ${speed_limit_mb}MB" >> frp_0.52.3_linux_$cpu_arch/frpc.ini
+        elif [[ $enable_speed_limiter == "no" || $enable_speed_limiter == "n" ]]; then
+            echo "[common]
 server_addr = $server_addr
 server_port = $server_port
 token = azumichwan
@@ -444,6 +462,10 @@ local_port = $local_port
 remote_port = $remote_port
 use_encryption = true
 use_compression = true" >> frp_0.52.3_linux_$cpu_arch/frpc.ini
+        else
+            echo $'\e[91mInvalid choice. Exiting...\e[0m'
+            exit 1
+        fi   
 
     # frpc service
     echo "[Unit]
@@ -480,8 +502,8 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/azumifrpc.service &>/
     read -p $'\e[33mEnter \e[92mKharej\e[33m Wireguard port: \e[0m' remote_port
    printf "\e[93m╰───────────────────────────────────────────────╯\e[0m\n"
     # frps.ini
-    rm frp_0.52.3_linux_amd64/frps.ini
-rm frp_0.52.3_linux_arm64/frps.ini
+        rm frp_0.52.3_linux_amd64/frps.ini >/dev/null 2>&1
+        rm frp_0.52.3_linux_arm64/frps.ini >/dev/null 2>&1
 # CPU architecture
 if [[ "$(uname -m)" == "x86_64" ]]; then
   cpu_arch="amd64"
@@ -570,17 +592,18 @@ function kharej_tunnel_menu() {
       echo $'\e[92m(   ) \e[93mKharej Multi Menu\e[0m'
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
-      printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
-    read -p $'\e[93mEnter the number of Configs: \e[0m' num_ipv6
+      printf "\e[93m─────────────────────────────────────────────────\e[0m\n"
+    read -p $'\e[93mEnter the \e[92mnumber of Configs\e[93m: \e[0m' num_ipv6
     sleep 1
     echo "Generating Config for you..."
 
     read -p $'\e[93mEnter \e[92mIran\e[93m IPv4|IPv6 address: \e[0m' iran_ipv6
     read -p $'\e[93mEnter \e[92mTunnel\e[93m Port:[Example: 443] \e[0m' tunnel_port
    
-# frpc.ini 
-rm frp_0.52.3_linux_amd64/frpc.ini
-rm frp_0.52.3_linux_arm64/frpc.ini 
+# frpc.ini
+        rm frp_0.52.3_linux_amd64/frpc.ini >/dev/null 2>&1
+        rm frp_0.52.3_linux_arm64/frpc.ini >/dev/null 2>&1
+
 # CPU architecture
 if [[ "$(uname -m)" == "x86_64" ]]; then
   cpu_arch="amd64"
@@ -590,7 +613,8 @@ else
   echo -e "\e[93mUnsupported CPU architecture.\e[0m"
   exit 1
 fi
-    cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+
+cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 [common]
 server_addr = $iran_ipv6
 server_port = $tunnel_port
@@ -599,14 +623,15 @@ token = azumichwan
 
 EOL
 
-    for ((i=1; i<=$num_ipv6; i++)); do
-        read -p $'\e[93mEnter your \e[92mKharej '$i$'th \e[93mIPv6 address:\e[0m\e[92m[Enter your Kharej IPV6s]\e[0m ' kharej_ipv6
-        read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
-        read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
- printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
-    
-        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+for ((i=1; i<=$num_ipv6; i++)); do
+    read -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
+    read -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
+    read -e -p $'\e[93mDo you want to enable the speed limiter? (\e[92myes\e[93m/\e[91mno\e[93m): \e[0m' enable_speed_limiter
+    if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
+        read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+        printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
 
+        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 [wireguard$i]
 type = udp
 local_port = $kharej_port
@@ -614,11 +639,24 @@ remote_port = $iran_port
 local_ip = 127.0.0.1
 use_encryption = true
 use_compression = true
-
+transport_bandwidthLimit= "${speed_limit_mb}MB"
 EOL
-    done
+    else
+        printf "\e[93m───────────────────────────────────────────────────\e[0m\n"
 
-    display_checkmark $'\e[92mKharej configuration generated. Yours Truly, Azumi.\e[0m'
+        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+[wireguard$i]
+type = udp
+local_port = $kharej_port
+remote_port = $iran_port
+local_ip = 127.0.0.1
+use_encryption = true
+use_compression = true
+EOL
+    fi
+done
+
+display_checkmark $'\e[92mKharej configuration generated. Yours Truly, Azumi.\e[0m'
 # Add the service section for Kharej
     cat > /etc/systemd/system/azumifrpc.service <<EOL
 [Unit]
@@ -659,8 +697,8 @@ function iran_tunnel_menu() {
     
     echo -e "\e[93mGenerating config for you...\e[0m"
     #frps.ini
-    rm frp_0.52.3_linux_amd64/frps.ini
-rm frp_0.52.3_linux_arm64/frps.ini
+        rm frp_0.52.3_linux_amd64/frps.ini >/dev/null 2>&1
+        rm frp_0.52.3_linux_arm64/frps.ini >/dev/null 2>&1
 # CPU architecture
 if [[ "$(uname -m)" == "x86_64" ]]; then
   cpu_arch="amd64"
@@ -824,17 +862,19 @@ function kharej_kcp_menu() {
       echo $'\e[92m(   ) \e[93mKharej KCP Menu\e[0m'
       echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
       echo ""
-      printf "\e[93m╭────────────────────────────────────────────────────╮\e[0m\n"
+      printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     read -e -p $'\e[93mEnter the \e[92mNumber of Configs\e[93m: \e[0m' num_configs
     sleep 1
     echo "Generating Config for you..."
 
     read -e -p $'\e[93mEnter \e[92mIran\e[93m IPV4|IPV6 address: \e[0m' iran_ipv6
     read -e -p $'\e[93mEnter \e[92mKCP\e[93m Port:[Example: 443] \e[0m' tunnel_port
+
    
-# frpc.ini 
-rm frp_0.52.3_linux_amd64/frpc.ini
-rm frp_0.52.3_linux_arm64/frpc.ini 
+# frpc.ini
+rm -rf frp_0.52.3_linux_amd64/frpc.ini >/dev/null 2>&1
+rm -rf frp_0.52.3_linux_arm64/frpc.ini >/dev/null 2>&1
+
 # CPU architecture
 if [[ "$(uname -m)" == "x86_64" ]]; then
   cpu_arch="amd64"
@@ -844,7 +884,8 @@ else
   echo -e "\e[93mUnsupported CPU architecture.\e[0m"
   exit 1
 fi
-    cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+
+cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 [common]
 server_addr = $iran_ipv6
 server_port = $tunnel_port
@@ -854,10 +895,28 @@ token = azumichwan
 
 EOL
 
-    for ((i = 1; i <= $num_configs; i++)); do
-        read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
-        read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
- printf "\e[93m╰────────────────────────────────────────────────────────────────────────────────────────╯\e[0m\n"
+for ((i = 1; i <= $num_configs; i++)); do
+    read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
+    read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
+    read -e -p $'\e[93mDo you want to enable the speed limiter? (\e[92myes\e[93m/\e[91mno\e[93m): \e[0m' enable_speed_limiter
+    if [[ $enable_speed_limiter == "yes" || $enable_speed_limiter == "y" ]]; then
+        read -p $'\e[93mEnter the speed limit in\e[92m MB\e[93m: \e[0m' speed_limit_mb
+        printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
+    
+        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+
+[wireguard$i]
+type = udp
+local_port = $kharej_port
+remote_port = $iran_port
+local_ip = 127.0.0.1
+use_encryption = true
+use_compression = true
+transport_bandwidthLimit = "${speed_limit_mb}MB"
+
+EOL
+    else
+        printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
     
         cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
 
@@ -870,9 +929,10 @@ use_encryption = true
 use_compression = true
 
 EOL
-    done
+    fi
+done
 
-    display_checkmark $'\e[92mKharej configuration generated. Yours Truly, Azumi.\e[0m'
+display_checkmark $'\e[92mKharej configuration generated. Yours Truly, Azumi.\e[0m'
 # Add the service section for Kharej
     cat > /etc/systemd/system/azumikcpc.service <<EOL
 [Unit]
@@ -913,8 +973,8 @@ function iran_kcp_menu() {
     
     echo -e "\e[93mGenerating config for you...\e[0m"
     #frps.ini
-    rm frp_0.52.3_linux_amd64/frps.ini
-rm frp_0.52.3_linux_arm64/frps.ini
+        rm frp_0.52.3_linux_amd64/frps.ini >/dev/null 2>&1
+        rm frp_0.52.3_linux_arm64/frps.ini >/dev/null 2>&1
 # CPU architecture
 if [[ "$(uname -m)" == "x86_64" ]]; then
   cpu_arch="amd64"
