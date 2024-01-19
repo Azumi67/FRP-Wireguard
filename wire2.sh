@@ -419,7 +419,6 @@ if [[ $server_type == "1" ]]; then
         echo $'\e[91mInvalid choice. Exiting...\e[0m'
         exit 1
     fi
-	read -e -p $'\e[93mDo you want to enable the speed limiter? (yes/no): \e[0m' enable_speed_limiter
 	
 
     # frpc.ini 
