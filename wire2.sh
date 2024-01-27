@@ -683,7 +683,7 @@ EOL
     
         cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
-type = tcp
+type = udp
 local_ip = 127.0.0.1
 local_port = $iran_wireguard_port
 remote_port = $kharej_wireguard_port
@@ -735,6 +735,11 @@ function uninstall() {
   sudo systemctl stop azumikcpc.service &>/dev/null
   sudo systemctl disable azumikcpc.service &>/dev/null
   sudo rm /etc/systemd/system/azumikcpc.service &>/dev/null
+  
+      # Deactivate service frp kharej3
+  sudo systemctl stop azumiquicc.service &>/dev/null
+  sudo systemctl disable azumiquicc.service &>/dev/null
+  sudo rm /etc/systemd/system/azumiquicc.service &>/dev/null
 
   # Deactivate service frp iran
   sudo systemctl stop azumifrps.service &>/dev/null
@@ -745,7 +750,12 @@ function uninstall() {
   sudo systemctl stop azumikcps.service &>/dev/null
   sudo systemctl disable azumikcps.service &>/dev/null
   sudo rm /etc/systemd/system/azumikcps.service &>/dev/null
-  # Start the uninstallation process
+  
+    # Deactivate service frp iran3
+  sudo systemctl stop azumiquics.service &>/dev/null
+  sudo systemctl disable azumiquics.service &>/dev/null
+  sudo rm /etc/systemd/system/azumiquics.service &>/dev/null
+
   display_notification $'\e[93mUninstalling FRP service (◡﹏◡✿)...\e[0m'
 
   # Kawaii azumi
@@ -759,32 +769,44 @@ function uninstall() {
   display_checkmark $'\e[92mFRP service has been uninstalled successfully!\e[0m'
 }
 
-# status
+function check_service_status() {
+  local service_name=$1
+  local status=$(systemctl show "$service_name" --property=ActiveState --no-pager --plain)
+  if [[ $status == "ActiveState=active" ]]; then
+    if [[ $service_name == "azumikcpc" || $service_name == "azumiquicc" || $service_name == "azumifrpc" ]]; then
+      echo -e "\e[92m                \xE2\x9C\x94 Kharej service is running\e[0m"
+      return 0
+    elif [[ $service_name == "azumikcps" || $service_name == "azumiquics" || $service_name == "azumifrps" ]]; then
+      echo -e "\e[92m                \xE2\x9C\x94 Iran service is running\e[0m"
+      return 0
+    fi
+  fi
+  return 1
+}
+
 function display_service_status() {
-  sudo systemctl is-active azumifrpc.service &>/dev/null
-  sudo systemctl is-active azumikcpc.service &>/dev/null
-  local frpc_status=$?
-  if [[ $frpc_status -eq 0 ]]; then
-    frpc_status_msg="\e[92m\xE2\x9C\x94 FRP Kharej service is running\e[0m" 
-  else
-    frpc_status_msg="\e[91m\xE2\x9C\x98 FRP Kharej service is not running\e[0m" 
-  fi
-
-  sudo systemctl is-active azumifrps.service &>/dev/null
-  sudo systemctl is-active azumikcps.service &>/dev/null
-  
-  local frps_status=$?
-  if [[ $frps_status -eq 0 ]]; then
-    frps_status_msg="\e[92m\xE2\x9C\x94 FRP Iran service is running\e[0m" 
-  else
-    frps_status_msg="\e[91m\xE2\x9C\x98 FRP Iran service is not running\e[0m" 
-  fi
-
   # box
-  printf "\e[93m╭───────────────────────────────────────╮\e[0m\n"  
-  printf "\e[93m %-35b \e[0m\n" "$frpc_status_msg"  
-  printf "\e[93m %-35b \e[0m\n" "$frps_status_msg"  
-  printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"  
+  printf "\e[93m          ╭───────────────────────────────────────╮\e[0m\n"
+  printf "\e[93m          │             Service Status            │\e[0m\n"
+  printf "\e[93m          ├───────────────────────────────────────┤\e[0m\n"
+
+  # Check FRP Kharej services
+  local active_service_found=0
+  check_service_status "azumikcpc" && active_service_found=1
+  check_service_status "azumiquicc" && active_service_found=1
+  check_service_status "azumifrpc" && active_service_found=1
+
+  # Check FRP Iran services
+  check_service_status "azumikcps" && active_service_found=1
+  check_service_status "azumiquics" && active_service_found=1
+  check_service_status "azumifrps" && active_service_found=1
+
+  if [[ $active_service_found -eq 0 ]]; then
+    echo -e "\e[91m                   \xE2\x9C\x98 No Service is running\e[0m"
+  fi
+
+  printf "\e[93m          │                                       │\e[0m\n"
+  printf "\e[93m          ╰───────────────────────────────────────╯\e[0m\n"
 }
 
 function Kcp_port() {
@@ -938,7 +960,7 @@ EOL
     
         cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
 [wireguard$i]
-type = tcp
+type = udp
 local_ip = 127.0.0.1
 local_port = $iran_wireguard_port
 remote_port = $kharej_wireguard_port
@@ -976,6 +998,194 @@ echo "Reloading daemon..." > /dev/null 2>&1
     display_checkmark $'\e[92mFRP Service started.\e[0m'
 }
 
+function quic_port() {
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mFRP Quic Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+       printf "\e[93m╭───────────────────────────────────────╮\e[0m\n"
+    echo "Select an option:"
+    echo -e "1. \e[92mKharej Tunnel\e[0m"
+    echo -e "2. \e[96mIran Tunnel\e[0m"
+    echo -e "3. \e[33mBack to main menu\e[0m"
+    printf "\e[93m╰───────────────────────────────────────╯\e[0m\n"
+    read -e -p "Enter your choice Please: " choice
+
+    case $choice in
+        1)
+            kharej_quic_menu
+            ;;
+        2)
+            iran_quic_menu
+            ;;
+        3)
+            clear
+            main_menu
+            ;;
+        *)
+            echo "Invalid choice."
+            ;;
+ esac
+}
+function kharej_quic_menu() {
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mKharej Quic Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+      printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
+    read -e -p $'\e[93mEnter the \e[92mNumber of Configs\e[93m: \e[0m' num_configs
+    sleep 1
+    echo "Generating Config for you..."
+
+    read -e -p $'\e[93mEnter \e[92mIran\e[93m IPV4|IPV6 address: \e[0m' iran_ipv6
+    read -e -p $'\e[93mEnter \e[92mQuic\e[93m Port: \e[0m' tunnel_port
+   
+# frpc.ini 
+rm frp_0.52.3_linux_amd64/frpc.ini >/dev/null 2>&1
+rm frp_0.52.3_linux_arm64/frpc.ini >/dev/null 2>&1
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
+    cat > frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+[common]
+server_addr = $iran_ipv6
+server_port = $tunnel_port
+transport.protocol = quic
+authentication_mode = token
+token = azumichwan
+
+EOL
+
+    for ((i = 1; i <= $num_configs; i++)); do
+        read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port:\e[0m\e[92m[current Wireguard port]\e[0m ' kharej_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port:\e[0m\e[92m[your new Wireguard port]\e[0m ' iran_port
+ printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
+    
+        cat >> frp_0.52.3_linux_$cpu_arch/frpc.ini <<EOL
+
+[wireguard$i]
+type = udp
+local_port = $kharej_port
+remote_port = $iran_port
+local_ip = 127.0.0.1
+use_encryption = true
+use_compression = true
+
+EOL
+    done
+
+    display_checkmark $'\e[92mKharej configuration generated. Yours Truly, Azumi.\e[0m'
+# Add the service section for Kharej
+    cat > /etc/systemd/system/azumiquicc.service <<EOL
+[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frpc -c /root/frp_0.52.3_linux_$cpu_arch/frpc.ini
+Restart=always
+RestartSec=10
+User=root
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
+EOL
+echo "Reloading daemon..." > /dev/null 2>&1
+    systemctl daemon-reload > /dev/null 2>&1
+
+    echo "Enabling FRP service..." > /dev/null 2>&1
+    systemctl enable azumiquicc > /dev/null 2>&1
+
+    echo "Starting FRP  service..."
+    systemctl restart azumiquicc
+    res_lk
+    display_checkmark $'\e[92mFRP Service started.\e[0m'
+}
+function iran_quic_menu() {
+  clear
+	  echo $'\e[92m ^ ^\e[0m'
+      echo $'\e[92m(\e[91mO,O\e[92m)\e[0m'
+      echo $'\e[92m(   ) \e[93mIran Quic Menu\e[0m'
+      echo $'\e[92m "-"\e[93m══════════════════════════\e[0m'
+      echo ""
+    printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
+    echo "Generating Iran Config for you..."
+    read -e -p $'\e[93mEnter \e[92mQuic Port\e[93m: \e[0m' tunnel_port
+    
+    echo -e "\e[93mGenerating config for you...\e[0m"
+    #frps.ini
+rm frp_0.52.3_linux_amd64/frps.ini >/dev/null 2>&1
+rm frp_0.52.3_linux_arm64/frps.ini >/dev/null 2>&1
+# CPU architecture
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  cpu_arch="amd64"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  cpu_arch="arm64"
+else
+  echo -e "\e[93mUnsupported CPU architecture.\e[0m"
+  exit 1
+fi
+    cat > frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
+[common]
+bind_port = $tunnel_port
+quicBindPort = $tunnel_port
+token = azumichwan
+
+EOL
+        read -e -p $'\e[93mEnter \e[92mKharej\e[93m Wireguard port Range:\e[0m\e[92m[example : 50820,50821,50822]\e[0m ' kharej_wireguard_port
+        read -e -p $'\e[93mEnter \e[92mIran\e[93m Wireguard port Range:\e[0m\e[92m[example : 50823,50824,50825]\e[0m ' iran_wireguard_port
+  printf "\e[93m──────────────────────────────────────────────────\e[0m\n"
+    
+        cat >> frp_0.52.3_linux_$cpu_arch/frps.ini <<EOL
+[wireguard$i]
+type = udp
+local_ip = 127.0.0.1
+local_port = $iran_wireguard_port
+remote_port = $kharej_wireguard_port
+use_encryption = true
+use_compression = true
+
+EOL
+
+    display_checkmark $'\e[92mIran configuration generated. Yours Truly, Azumi.\e[0m'
+# Add the service section for Kharej
+    cat > /etc/systemd/system/azumiquics.service <<EOL
+[Unit]
+Description=frps service
+After=network.target
+
+[Service]
+ExecStart=/root/frp_0.52.3_linux_$cpu_arch/./frps -c /root/frp_0.52.3_linux_$cpu_arch/frps.ini
+Restart=always
+RestartSec=10
+User=root
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
+EOL
+echo "Reloading daemon..." > /dev/null 2>&1
+    systemctl daemon-reload > /dev/null 2>&1
+
+    echo "Enabling FRP service..." > /dev/null 2>&1
+    systemctl enable azumiquics > /dev/null 2>&1
+
+    echo "Starting FRP  service..."
+    systemctl restart azumiquics
+    res_li
+    display_checkmark $'\e[92mFRP Service started.\e[0m'
+}
 # menu asli
 function main_menu() {
 # Print the logo
@@ -991,9 +1201,10 @@ function main_menu() {
   echo -e "\e[37m2. \e[93mEdit Reset Timer"
   echo -e "\e[37m3. \e[32mFRP Wireguard tunnel setup"
   echo -e "\e[37m4. \e[93mFRP KCP Wireguard tunnel setup"
-  echo -e "\e[37m5. \e[96mFRP Multi Wireguard tunnel setup"
-  echo -e "\e[37m6.\e[91m Uninstall FRP Service\e[0m"
-  echo -e "\e[37m7. \e[92mRestart Service\e[0m"
+  echo -e "\e[37m5. \e[92mFRP Quic Wireguard tunnel setup"
+  echo -e "\e[37m6. \e[96mFRP Multi Wireguard tunnel setup"
+  echo -e "\e[37m7.\e[91m Uninstall FRP Service\e[0m"
+  echo -e "\e[37m8. \e[92mRestart Service\e[0m"
   echo -e "\e[37m0. \e[91;1mExit\e[0m"
 
  read -e -p $'\e[5mEnter your choice Please: \e[0m' choice 
@@ -1012,12 +1223,15 @@ function main_menu() {
       Kcp_port
       ;;
 	5)
+      quic_port
+      ;;
+	6)
       multi_port
       ;;	  
-    6)
+    7)
       uninstall
       ;;
-    7)
+    8)
       restart_service
       ;;
     0)
@@ -1039,10 +1253,12 @@ function restart_service() {
     systemctl daemon-reload
     systemctl restart azumifrpc.service > /dev/null 2>&1
 	systemctl restart azumikcpc.service > /dev/null 2>&1
+	systemctl restart azumiquicc.service > /dev/null 2>&1
 
     # Check 2
     systemctl restart azumifrps.service > /dev/null 2>&1
 	systemctl restart azumikcps.service > /dev/null 2>&1
+	systemctl restart azumiquics.service > /dev/null 2>&1
     display_checkmark $'\e[92mFRP Service restarted.\e[0m'
 
   
