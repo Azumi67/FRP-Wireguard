@@ -2357,7 +2357,7 @@ function main_menu() {
   # Print the logo
   display_logo
   echo ""
-  echo -e "\e[93m\033[1m     Join OPIRAN Telegram: \e[34m@https://t.me/OPIranClub\e[0m\e[0m"
+  echo -e "\e[93m\033[1m       Join OPIRAN Telegram: \e[34m@https://t.me/OPIranClub\e[0m\e[0m"
   printf "\e[93m        +ꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥ+\e[0m\n" 
   echo -e "\e[93m╔════════════════════════════════════════════════════════════════╗\e[0m"  
   echo -e "\e[93m║           ▌║█║▌│║▌│║▌║▌█║ \e[92mMain Menu\e[93m  ▌│║▌║▌│║║▌█║▌             ║\e[0m"   
