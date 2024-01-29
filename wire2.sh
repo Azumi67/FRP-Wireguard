@@ -22,6 +22,423 @@ if [[ $EUID -ne 0 ]]; then
 fi
 function deleteCron1() {
     entriesToDelete=(
+        "0 * * * * /bin/bash /etc/res.sh"
+        "0 */2 * * * /bin/bash /etc/res.sh"
+        "0 */3 * * * /bin/bash /etc/res.sh"
+        "0 */4 * * * /bin/bash /etc/res.sh"
+        "0 */5 * * * /bin/bash /etc/res.sh"
+        "0 */6 * * * /bin/bash /etc/res.sh"
+        "0 */7 * * * /bin/bash /etc/res.sh"
+        "0 */8 * * * /bin/bash /etc/res.sh"
+        "0 */9 * * * /bin/bash /etc/res.sh"
+        "0 */10 * * * /bin/bash /etc/res.sh"
+        "0 */11 * * * /bin/bash /etc/res.sh"
+        "0 */12 * * * /bin/bash /etc/res.sh"
+        "0 */13 * * * /bin/bash /etc/res.sh"
+        "0 */14 * * * /bin/bash /etc/res.sh"
+        "0 */15 * * * /bin/bash /etc/res.sh"
+        "0 */16 * * * /bin/bash /etc/res.sh"
+        "0 */17 * * * /bin/bash /etc/res.sh"
+        "0 */18 * * * /bin/bash /etc/res.sh"
+        "0 */19 * * * /bin/bash /etc/res.sh"
+        "0 */20 * * * /bin/bash /etc/res.sh"
+        "0 */21 * * * /bin/bash /etc/res.sh"
+        "0 */22 * * * /bin/bash /etc/res.sh"
+        "0 */23 * * * /bin/bash /etc/res.sh"
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for entry in "${entriesToDelete[@]}"; do
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron2() {
+    entriesToDelete=(
+		"*/1 * * * * /bin/bash /etc/res.sh",
+		"*/2 * * * * /bin/bash /etc/res.sh",
+		"*/3 * * * * /bin/bash /etc/res.sh",
+		"*/4 * * * * /bin/bash /etc/res.sh",
+		"*/5 * * * * /bin/bash /etc/res.sh",
+		"*/6 * * * * /bin/bash /etc/res.sh",
+		"*/7 * * * * /bin/bash /etc/res.sh",
+		"*/8 * * * * /bin/bash /etc/res.sh",
+		"*/9 * * * * /bin/bash /etc/res.sh",
+		"*/10 * * * * /bin/bash /etc/res.sh",
+		"*/11 * * * * /bin/bash /etc/res.sh",
+		"*/12 * * * * /bin/bash /etc/res.sh",
+		"*/13 * * * * /bin/bash /etc/res.sh",
+		"*/14 * * * * /bin/bash /etc/res.sh",
+		"*/15 * * * * /bin/bash /etc/res.sh",
+		"*/16 * * * * /bin/bash /etc/res.sh",
+		"*/17 * * * * /bin/bash /etc/res.sh",
+		"*/18 * * * * /bin/bash /etc/res.sh",
+		"*/19 * * * * /bin/bash /etc/res.sh",
+		"*/20 * * * * /bin/bash /etc/res.sh",
+		"*/21 * * * * /bin/bash /etc/res.sh",
+		"*/22 * * * * /bin/bash /etc/res.sh",
+		"*/23 * * * * /bin/bash /etc/res.sh",
+		"*/24 * * * * /bin/bash /etc/res.sh",
+		"*/25 * * * * /bin/bash /etc/res.sh",
+		"*/26 * * * * /bin/bash /etc/res.sh",
+		"*/27 * * * * /bin/bash /etc/res.sh",
+		"*/28 * * * * /bin/bash /etc/res.sh",
+		"*/29 * * * * /bin/bash /etc/res.sh",
+		"*/30 * * * * /bin/bash /etc/res.sh",
+		"*/31 * * * * /bin/bash /etc/res.sh",
+		"*/32 * * * * /bin/bash /etc/res.sh",
+		"*/33 * * * * /bin/bash /etc/res.sh",
+		"*/34 * * * * /bin/bash /etc/res.sh",
+		"*/35 * * * * /bin/bash /etc/res.sh",
+		"*/36 * * * * /bin/bash /etc/res.sh",
+		"*/37 * * * * /bin/bash /etc/res.sh",
+		"*/38 * * * * /bin/bash /etc/res.sh",
+		"*/39 * * * * /bin/bash /etc/res.sh",
+		"*/40 * * * * /bin/bash /etc/res.sh",
+		"*/41 * * * * /bin/bash /etc/res.sh",
+		"*/42 * * * * /bin/bash /etc/res.sh",
+		"*/43 * * * * /bin/bash /etc/res.sh",
+		"*/44 * * * * /bin/bash /etc/res.sh",
+		"*/45 * * * * /bin/bash /etc/res.sh",
+		"*/46 * * * * /bin/bash /etc/res.sh",
+		"*/47 * * * * /bin/bash /etc/res.sh",
+		"*/48 * * * * /bin/bash /etc/res.sh",
+		"*/49 * * * * /bin/bash /etc/res.sh",
+		"*/50 * * * * /bin/bash /etc/res.sh",
+		"*/51 * * * * /bin/bash /etc/res.sh",
+		"*/52 * * * * /bin/bash /etc/res.sh",
+		"*/53 * * * * /bin/bash /etc/res.sh",
+		"*/54 * * * * /bin/bash /etc/res.sh",
+		"*/55 * * * * /bin/bash /etc/res.sh",
+		"*/56 * * * * /bin/bash /etc/res.sh",
+		"*/57 * * * * /bin/bash /etc/res.sh",
+		"*/58 * * * * /bin/bash /etc/res.sh",
+		"*/59 * * * * /bin/bash /etc/res.sh",
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /bin/bash /etc/res.sh"
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron3() {
+    entriesToDelete=(
+        "0 * * * * /bin/bash /etc/resk.sh"
+        "0 */2 * * * /bin/bash /etc/resk.sh"
+        "0 */3 * * * /bin/bash /etc/resk.sh"
+        "0 */4 * * * /bin/bash /etc/resk.sh"
+        "0 */5 * * * /bin/bash /etc/resk.sh"
+        "0 */6 * * * /bin/bash /etc/resk.sh"
+        "0 */7 * * * /bin/bash /etc/resk.sh"
+        "0 */8 * * * /bin/bash /etc/resk.sh"
+        "0 */9 * * * /bin/bash /etc/resk.sh"
+        "0 */10 * * * /bin/bash /etc/resk.sh"
+        "0 */11 * * * /bin/bash /etc/resk.sh"
+        "0 */12 * * * /bin/bash /etc/resk.sh"
+        "0 */13 * * * /bin/bash /etc/resk.sh"
+        "0 */14 * * * /bin/bash /etc/resk.sh"
+        "0 */15 * * * /bin/bash /etc/resk.sh"
+        "0 */16 * * * /bin/bash /etc/resk.sh"
+        "0 */17 * * * /bin/bash /etc/resk.sh"
+        "0 */18 * * * /bin/bash /etc/resk.sh"
+        "0 */19 * * * /bin/bash /etc/resk.sh"
+        "0 */20 * * * /bin/bash /etc/resk.sh"
+        "0 */21 * * * /bin/bash /etc/resk.sh"
+        "0 */22 * * * /bin/bash /etc/resk.sh"
+        "0 */23 * * * /bin/bash /etc/resk.sh"
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for entry in "${entriesToDelete[@]}"; do
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron4() {
+    entriesToDelete=(
+		"*/1 * * * * /bin/bash /etc/resk.sh",
+		"*/2 * * * * /bin/bash /etc/resk.sh",
+		"*/3 * * * * /bin/bash /etc/resk.sh",
+		"*/4 * * * * /bin/bash /etc/resk.sh",
+		"*/5 * * * * /bin/bash /etc/resk.sh",
+		"*/6 * * * * /bin/bash /etc/resk.sh",
+		"*/7 * * * * /bin/bash /etc/resk.sh",
+		"*/8 * * * * /bin/bash /etc/resk.sh",
+		"*/9 * * * * /bin/bash /etc/resk.sh",
+		"*/10 * * * * /bin/bash /etc/resk.sh",
+		"*/11 * * * * /bin/bash /etc/resk.sh",
+		"*/12 * * * * /bin/bash /etc/resk.sh",
+		"*/13 * * * * /bin/bash /etc/resk.sh",
+		"*/14 * * * * /bin/bash /etc/resk.sh",
+		"*/15 * * * * /bin/bash /etc/resk.sh",
+		"*/16 * * * * /bin/bash /etc/resk.sh",
+		"*/17 * * * * /bin/bash /etc/resk.sh",
+		"*/18 * * * * /bin/bash /etc/resk.sh",
+		"*/19 * * * * /bin/bash /etc/resk.sh",
+		"*/20 * * * * /bin/bash /etc/resk.sh",
+		"*/21 * * * * /bin/bash /etc/resk.sh",
+		"*/22 * * * * /bin/bash /etc/resk.sh",
+		"*/23 * * * * /bin/bash /etc/resk.sh",
+		"*/24 * * * * /bin/bash /etc/resk.sh",
+		"*/25 * * * * /bin/bash /etc/resk.sh",
+		"*/26 * * * * /bin/bash /etc/resk.sh",
+		"*/27 * * * * /bin/bash /etc/resk.sh",
+		"*/28 * * * * /bin/bash /etc/resk.sh",
+		"*/29 * * * * /bin/bash /etc/resk.sh",
+		"*/30 * * * * /bin/bash /etc/resk.sh",
+		"*/31 * * * * /bin/bash /etc/resk.sh",
+		"*/32 * * * * /bin/bash /etc/resk.sh",
+		"*/33 * * * * /bin/bash /etc/resk.sh",
+		"*/34 * * * * /bin/bash /etc/resk.sh",
+		"*/35 * * * * /bin/bash /etc/resk.sh",
+		"*/36 * * * * /bin/bash /etc/resk.sh",
+		"*/37 * * * * /bin/bash /etc/resk.sh",
+		"*/38 * * * * /bin/bash /etc/resk.sh",
+		"*/39 * * * * /bin/bash /etc/resk.sh",
+		"*/40 * * * * /bin/bash /etc/resk.sh",
+		"*/41 * * * * /bin/bash /etc/resk.sh",
+		"*/42 * * * * /bin/bash /etc/resk.sh",
+		"*/43 * * * * /bin/bash /etc/resk.sh",
+		"*/44 * * * * /bin/bash /etc/resk.sh",
+		"*/45 * * * * /bin/bash /etc/resk.sh",
+		"*/46 * * * * /bin/bash /etc/resk.sh",
+		"*/47 * * * * /bin/bash /etc/resk.sh",
+		"*/48 * * * * /bin/bash /etc/resk.sh",
+		"*/49 * * * * /bin/bash /etc/resk.sh",
+		"*/50 * * * * /bin/bash /etc/resk.sh",
+		"*/51 * * * * /bin/bash /etc/resk.sh",
+		"*/52 * * * * /bin/bash /etc/resk.sh",
+		"*/53 * * * * /bin/bash /etc/resk.sh",
+		"*/54 * * * * /bin/bash /etc/resk.sh",
+		"*/55 * * * * /bin/bash /etc/resk.sh",
+		"*/56 * * * * /bin/bash /etc/resk.sh",
+		"*/57 * * * * /bin/bash /etc/resk.sh",
+		"*/58 * * * * /bin/bash /etc/resk.sh",
+		"*/59 * * * * /bin/bash /etc/resk.sh",
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /bin/bash /etc/resk.sh"
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron5() {
+    entriesToDelete=(
+        "0 * * * * /bin/bash /etc/resq.sh"
+        "0 */2 * * * /bin/bash /etc/resq.sh"
+        "0 */3 * * * /bin/bash /etc/resq.sh"
+        "0 */4 * * * /bin/bash /etc/resq.sh"
+        "0 */5 * * * /bin/bash /etc/resq.sh"
+        "0 */6 * * * /bin/bash /etc/resq.sh"
+        "0 */7 * * * /bin/bash /etc/resq.sh"
+        "0 */8 * * * /bin/bash /etc/resq.sh"
+        "0 */9 * * * /bin/bash /etc/resq.sh"
+        "0 */10 * * * /bin/bash /etc/resq.sh"
+        "0 */11 * * * /bin/bash /etc/resq.sh"
+        "0 */12 * * * /bin/bash /etc/resq.sh"
+        "0 */13 * * * /bin/bash /etc/resq.sh"
+        "0 */14 * * * /bin/bash /etc/resq.sh"
+        "0 */15 * * * /bin/bash /etc/resq.sh"
+        "0 */16 * * * /bin/bash /etc/resq.sh"
+        "0 */17 * * * /bin/bash /etc/resq.sh"
+        "0 */18 * * * /bin/bash /etc/resq.sh"
+        "0 */19 * * * /bin/bash /etc/resq.sh"
+        "0 */20 * * * /bin/bash /etc/resq.sh"
+        "0 */21 * * * /bin/bash /etc/resq.sh"
+        "0 */22 * * * /bin/bash /etc/resq.sh"
+        "0 */23 * * * /bin/bash /etc/resq.sh"
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for entry in "${entriesToDelete[@]}"; do
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron6() {
+    entriesToDelete=(
+		"*/1 * * * * /bin/bash /etc/resq.sh",
+		"*/2 * * * * /bin/bash /etc/resq.sh",
+		"*/3 * * * * /bin/bash /etc/resq.sh",
+		"*/4 * * * * /bin/bash /etc/resq.sh",
+		"*/5 * * * * /bin/bash /etc/resq.sh",
+		"*/6 * * * * /bin/bash /etc/resq.sh",
+		"*/7 * * * * /bin/bash /etc/resq.sh",
+		"*/8 * * * * /bin/bash /etc/resq.sh",
+		"*/9 * * * * /bin/bash /etc/resq.sh",
+		"*/10 * * * * /bin/bash /etc/resq.sh",
+		"*/11 * * * * /bin/bash /etc/resq.sh",
+		"*/12 * * * * /bin/bash /etc/resq.sh",
+		"*/13 * * * * /bin/bash /etc/resq.sh",
+		"*/14 * * * * /bin/bash /etc/resq.sh",
+		"*/15 * * * * /bin/bash /etc/resq.sh",
+		"*/16 * * * * /bin/bash /etc/resq.sh",
+		"*/17 * * * * /bin/bash /etc/resq.sh",
+		"*/18 * * * * /bin/bash /etc/resq.sh",
+		"*/19 * * * * /bin/bash /etc/resq.sh",
+		"*/20 * * * * /bin/bash /etc/resq.sh",
+		"*/21 * * * * /bin/bash /etc/resq.sh",
+		"*/22 * * * * /bin/bash /etc/resq.sh",
+		"*/23 * * * * /bin/bash /etc/resq.sh",
+		"*/24 * * * * /bin/bash /etc/resq.sh",
+		"*/25 * * * * /bin/bash /etc/resq.sh",
+		"*/26 * * * * /bin/bash /etc/resq.sh",
+		"*/27 * * * * /bin/bash /etc/resq.sh",
+		"*/28 * * * * /bin/bash /etc/resq.sh",
+		"*/29 * * * * /bin/bash /etc/resq.sh",
+		"*/30 * * * * /bin/bash /etc/resq.sh",
+		"*/31 * * * * /bin/bash /etc/resq.sh",
+		"*/32 * * * * /bin/bash /etc/resq.sh",
+		"*/33 * * * * /bin/bash /etc/resq.sh",
+		"*/34 * * * * /bin/bash /etc/resq.sh",
+		"*/35 * * * * /bin/bash /etc/resq.sh",
+		"*/36 * * * * /bin/bash /etc/resq.sh",
+		"*/37 * * * * /bin/bash /etc/resq.sh",
+		"*/38 * * * * /bin/bash /etc/resq.sh",
+		"*/39 * * * * /bin/bash /etc/resq.sh",
+		"*/40 * * * * /bin/bash /etc/resq.sh",
+		"*/41 * * * * /bin/bash /etc/resq.sh",
+		"*/42 * * * * /bin/bash /etc/resq.sh",
+		"*/43 * * * * /bin/bash /etc/resq.sh",
+		"*/44 * * * * /bin/bash /etc/resq.sh",
+		"*/45 * * * * /bin/bash /etc/resq.sh",
+		"*/46 * * * * /bin/bash /etc/resq.sh",
+		"*/47 * * * * /bin/bash /etc/resq.sh",
+		"*/48 * * * * /bin/bash /etc/resq.sh",
+		"*/49 * * * * /bin/bash /etc/resq.sh",
+		"*/50 * * * * /bin/bash /etc/resq.sh",
+		"*/51 * * * * /bin/bash /etc/resq.sh",
+		"*/52 * * * * /bin/bash /etc/resq.sh",
+		"*/53 * * * * /bin/bash /etc/resq.sh",
+		"*/54 * * * * /bin/bash /etc/resq.sh",
+		"*/55 * * * * /bin/bash /etc/resq.sh",
+		"*/56 * * * * /bin/bash /etc/resq.sh",
+		"*/57 * * * * /bin/bash /etc/resq.sh",
+		"*/58 * * * * /bin/bash /etc/resq.sh",
+		"*/59 * * * * /bin/bash /etc/resq.sh",
+    )
+
+    existingCrontab=$(crontab -l 2>/dev/null)
+    if [ -z "$existingCrontab" ]; then
+        echo -e "\033[91mNo existing cron found!\033[0m"
+        return
+    fi
+
+    newCrontab="$existingCrontab"
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /bin/bash /etc/resq.sh"
+        if [[ "$newCrontab" == *"$entry"* ]]; then
+            newCrontab="${newCrontab//$entry/}"
+        fi
+    done
+
+    if [ "$newCrontab" != "$existingCrontab" ]; then
+        echo "$newCrontab" | crontab - 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo -e "\033[91mFailed to delete some cron entries. Don't worry about it.\033[0m"
+        else
+            echo -e "\033[92mDeleting Previous Crons..\033[0m"
+        fi
+    else
+        echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
+    fi
+}
+function deleteCron7() {
+    entriesToDelete=(
         "0 * * * * /etc/res.sh"
         "0 */2 * * * /etc/res.sh"
         "0 */3 * * * /etc/res.sh"
@@ -71,7 +488,7 @@ function deleteCron1() {
         echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
     fi
 }
-function deleteCron2() {
+function deleteCron8() {
     entriesToDelete=(
 		"*/1 * * * * /etc/res.sh",
 		"*/2 * * * * /etc/res.sh",
@@ -141,7 +558,8 @@ function deleteCron2() {
     fi
 
     newCrontab="$existingCrontab"
-    for entry in "${entriesToDelete[@]}"; do
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /etc/res.sh"
         if [[ "$newCrontab" == *"$entry"* ]]; then
             newCrontab="${newCrontab//$entry/}"
         fi
@@ -158,7 +576,7 @@ function deleteCron2() {
         echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
     fi
 }
-function deleteCron3() {
+function deleteCron9() {
     entriesToDelete=(
         "0 * * * * /etc/resk.sh"
         "0 */2 * * * /etc/resk.sh"
@@ -209,7 +627,7 @@ function deleteCron3() {
         echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
     fi
 }
-function deleteCron4() {
+function deleteCron10() {
     entriesToDelete=(
 		"*/1 * * * * /etc/resk.sh",
 		"*/2 * * * * /etc/resk.sh",
@@ -279,7 +697,8 @@ function deleteCron4() {
     fi
 
     newCrontab="$existingCrontab"
-    for entry in "${entriesToDelete[@]}"; do
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /etc/resk.sh"
         if [[ "$newCrontab" == *"$entry"* ]]; then
             newCrontab="${newCrontab//$entry/}"
         fi
@@ -296,7 +715,7 @@ function deleteCron4() {
         echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
     fi
 }
-function deleteCron5() {
+function deleteCron11() {
     entriesToDelete=(
         "0 * * * * /etc/resq.sh"
         "0 */2 * * * /etc/resq.sh"
@@ -347,7 +766,7 @@ function deleteCron5() {
         echo -e "\033[91mCron doesn't exist, moving on..!\033[0m"
     fi
 }
-function deleteCron6() {
+function deleteCron12() {
     entriesToDelete=(
 		"*/1 * * * * /etc/resq.sh",
 		"*/2 * * * * /etc/resq.sh",
@@ -417,7 +836,8 @@ function deleteCron6() {
     fi
 
     newCrontab="$existingCrontab"
-    for entry in "${entriesToDelete[@]}"; do
+    for ((i = 1; i <= 59; i++)); do
+        entry="*/$i * * * * /etc/resq.sh"
         if [[ "$newCrontab" == *"$entry"* ]]; then
             newCrontab="${newCrontab//$entry/}"
         fi
@@ -535,7 +955,7 @@ EOF
 
 function rmve_cron() {
     entries_to_remove=(
-        "0 */2 * * * /etc/res.sh"
+        "0 */2 * * * /bin/bash /etc/res.sh"
     )
 
     if test -f /etc/res.sh; then
@@ -623,7 +1043,7 @@ minutesq() {
 	deleteCron6
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m ' minutes
 
-    cron_entry="*/$minutes * * * * /etc/resq.sh"
+    cron_entry="*/$minutes * * * * /bin/bash /etc/resq.sh"
 
     existing_crontab=""
     existing_crontab=$(crontab -l 2>/dev/null)
@@ -632,7 +1052,7 @@ minutesq() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/resq.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/resq.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -646,7 +1066,7 @@ minutesk() {
 	deleteCron4
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m ' minutes
 
-    cron_entry="*/$minutes * * * * /etc/resk.sh"
+    cron_entry="*/$minutes * * * * /bin/bash /etc/resk.sh"
 
     existing_crontab=""
     existing_crontab=$(crontab -l 2>/dev/null)
@@ -655,7 +1075,7 @@ minutesk() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/resk.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/resk.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -669,7 +1089,7 @@ minutesu() {
 	deleteCron2
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m ' minutes
 
-    cron_entry="*/$minutes * * * * /etc/res.sh"
+    cron_entry="*/$minutes * * * * /bin/bash /etc/res.sh"
 
     existing_crontab=""
     existing_crontab=$(crontab -l 2>/dev/null)
@@ -678,7 +1098,7 @@ minutesu() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/res.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/res.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -726,9 +1146,9 @@ hourq() {
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m ' hours
 
     if [[ "$hours" == "1" ]]; then
-        cron_entry="0 * * * * /etc/resq.sh"
+        cron_entry="0 * * * * /bin/bash /etc/resq.sh"
     else
-        cron_entry="0 */$hours * * * /etc/resq.sh"
+        cron_entry="0 */$hours * * * /bin/bash /etc/resq.sh"
     fi
 
     existing_crontab=""
@@ -738,7 +1158,7 @@ hourq() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/resq.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/resq.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -753,9 +1173,9 @@ hourk() {
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m ' hours
 
     if [[ "$hours" == "1" ]]; then
-        cron_entry="0 * * * * /etc/resk.sh"
+        cron_entry="0 * * * * /bin/bash /etc/resk.sh"
     else
-        cron_entry="0 */$hours * * * /etc/resk.sh"
+        cron_entry="0 */$hours * * * /bin/bash /etc/resk.sh"
     fi
 
     existing_crontab=""
@@ -765,7 +1185,7 @@ hourk() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/resk.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/resk.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -780,9 +1200,9 @@ houru() {
     read -e -p $'\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m ' hours
 
     if [[ "$hours" == "1" ]]; then
-        cron_entry="0 * * * * /etc/res.sh"
+        cron_entry="0 * * * * /bin/bash /etc/res.sh"
     else
-        cron_entry="0 */$hours * * * /etc/res.sh"
+        cron_entry="0 */$hours * * * /bin/bash /etc/res.sh"
     fi
 
     existing_crontab=""
@@ -792,7 +1212,7 @@ houru() {
         echo -e "\033[91mNo existing cron found!\033[0m"
     fi
 
-    new_crontab=$(echo "$existing_crontab" | grep -v "/etc/res.sh")
+    new_crontab=$(echo "$existing_crontab" | grep -v "/bin/bash /etc/res.sh")
     new_crontab="$new_crontab"$'\n'"$cron_entry"
 
     if echo "$new_crontab" | crontab -; then
@@ -855,12 +1275,12 @@ EOF
 
     if [[ "${optionStr}" == "1" ]]; then
         if [[ "${timeValue}" == "1" ]]; then
-            cronEntry="0 * * * * /etc/res.sh"
+            cronEntry="0 * * * * /bin/bash /etc/res.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/res.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/res.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/res.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/res.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -924,12 +1344,12 @@ EOF
 
     if [[ "${optionStr}" == "1" ]]; then
         if [[ "${timeValue}" == "1" ]]; then
-            cronEntry="0 * * * * /etc/res.sh"
+            cronEntry="0 * * * * /bin/bash /etc/res.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/res.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/res.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/res.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/res.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -993,12 +1413,12 @@ EOF
 
     if [[ "${optionStr}" == "1" ]]; then
         if [[ "${timeValue}" == "1" ]]; then
-            cronEntry="0 * * * * /etc/resk.sh"
+            cronEntry="0 * * * * /bin/bash /etc/resk.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/resk.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/resk.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/resk.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/resk.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -1062,12 +1482,12 @@ EOF
 
     if [[ "${optionStr}" == "1" ]]; then
         if [[ "${timeValue}" == "1" ]]; then
-            cronEntry="0 * * * * /etc/resk.sh"
+            cronEntry="0 * * * * /bin/bash /etc/resk.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/resk.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/resk.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/resk.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/resk.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -1131,12 +1551,12 @@ EOF
 
     if [[ "${optionStr}" == "1" ]]; then
         if [[ "${timeValue}" == "1" ]]; then
-            cronEntry="0 * * * * /etc/resq.sh"
+            cronEntry="0 * * * * /bin/bash /etc/resq.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/resq.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/resq.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/resq.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/resq.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -1202,10 +1622,10 @@ EOF
         if [[ "${timeValue}" == "1" ]]; then
             cronEntry="0 * * * * /etc/resq.sh"
         elif [[ "${timeValue}" -ge 2 ]]; then
-            cronEntry="0 */${timeValue} * * * /etc/resq.sh"
+            cronEntry="0 */${timeValue} * * * /bin/bash /etc/resq.sh"
         fi
     elif [[ "${optionStr}" == "2" ]]; then
-        cronEntry="*/${timeValue} * * * * /etc/resq.sh"
+        cronEntry="*/${timeValue} * * * * /bin/bash /etc/resq.sh"
     fi
 
     if crontab -l | grep -qF "${cronEntry}"; then
@@ -1697,6 +2117,8 @@ function uni() {
 q_menu() {
   deleteCron5
   deleteCron6
+  deleteCron11
+  deleteCron12
   display_notification $'\e[93mStarting uninstallation of FRP service...\e[0m'
   sleep 1
   sudo rm -rf frp_0.52.3_linux_amd64 &>/dev/null
@@ -1713,7 +2135,7 @@ q_menu() {
   display_notification $'\e[93mUninstalling FRP service (◡﹏◡✿)...\e[0m'
 
   # Kawaii azumi
-  local total=10
+  local total=3
   for ((i = 0; i <= total; i++)); do
     sleep 0.5
     display_progress "$total" "$i" $'\e[93mUninstalling FRP service... Please wait...\e[0m'
@@ -1725,6 +2147,8 @@ q_menu() {
 k_menu() {
   deleteCron3
   deleteCron4
+  deleteCron9
+  deleteCron10
   display_notification $'\e[93mStarting uninstallation of FRP service...\e[0m'
   sleep 1
   sudo rm -rf frp_0.52.3_linux_amd64 &>/dev/null
@@ -1742,7 +2166,7 @@ k_menu() {
   display_notification $'\e[93mUninstalling FRP service (◡﹏◡✿)...\e[0m'
 
   # Kawaii azumi
-  local total=10
+  local total=3
   for ((i = 0; i <= total; i++)); do
     sleep 0.5
     display_progress "$total" "$i" $'\e[93mUninstalling FRP service... Please wait...\e[0m'
@@ -1754,6 +2178,8 @@ k_menu() {
 u_menu() {
   deleteCron1
   deleteCron2
+  deleteCron7
+  deleteCron8
   display_notification $'\e[93mStarting uninstallation of FRP service...\e[0m'
   sleep 1
   sudo rm -rf frp_0.52.3_linux_amd64 &>/dev/null
@@ -1771,7 +2197,7 @@ u_menu() {
   display_notification $'\e[93mUninstalling FRP service (◡﹏◡✿)...\e[0m'
 
   # Kawaii azumi
-  local total=10
+  local total=3
   for ((i = 0; i <= total; i++)); do
     sleep 0.5
     display_progress "$total" "$i" $'\e[93mUninstalling FRP service... Please wait...\e[0m'
