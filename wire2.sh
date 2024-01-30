@@ -1233,7 +1233,8 @@ res_li() {
 
     cat << 'EOF' > "/etc/res.sh"
 #!/bin/bash
-kill -9 \$(pgrep frps)
+pids=$(pgrep frps)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumifrps
 sudo journalctl --vacuum-size=1M
@@ -1302,7 +1303,8 @@ res_lk() {
 
     cat << 'EOF' > "/etc/res.sh"
 #!/bin/bash
-kill -9 \$(pgrep frpc)
+pids=$(pgrep frpc)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumifrpc
 sudo journalctl --vacuum-size=1M
@@ -1371,7 +1373,8 @@ res_kcpk() {
 
     cat << 'EOF' > "/etc/resk.sh"
 #!/bin/bash
-kill -9 \$(pgrep frpc)
+pids=$(pgrep frpc)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumikcpc
 sudo journalctl --vacuum-size=1M
@@ -1440,7 +1443,8 @@ res_kcpi() {
 
     cat << 'EOF' > "/etc/resk.sh"
 #!/bin/bash
-kill -9 \$(pgrep frps)
+pids=$(pgrep frps)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumikcps
 sudo journalctl --vacuum-size=1M
@@ -1509,7 +1513,8 @@ res_quick() {
 
     cat << 'EOF' > "/etc/resq.sh"
 #!/bin/bash
-kill -9 \$(pgrep frpc)
+pids=$(pgrep frpc)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumiquicc
 sudo journalctl --vacuum-size=1M
@@ -1578,7 +1583,8 @@ res_quici() {
 
     cat << 'EOF' > "/etc/resq.sh"
 #!/bin/bash
-kill -9 \$(pgrep frps)
+pids=$(pgrep frps)
+kill -9 $pids
 systemctl daemon-reload
 systemctl restart azumiquics
 sudo journalctl --vacuum-size=1M
